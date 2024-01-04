@@ -1,0 +1,39 @@
+version: '3'
+services:
+  app:
+    container_name: whisky_business
+    build: .
+    ports: 
+      - 8080:8080 
+    restart: on-failure
+    volumes:
+      - api:/usr/src/app/
+    depends_on:
+      - fullstack-mysql
+    networks:
+      - fullstack
+
+
+  fullstack-mysql:
+    image: mysql:5.7
+    container_name: full_db_mysql
+    ports: 
+      - 3306:3306
+    environment: 
+      - MYSQL_ROOT_HOST=fullstack-mysql
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=my-secret-pw
+      - MYSQL_DATABASE=timeclock
+      - MYSQL_ROOT_PASSWORD=my-secret-pw
+    volumes:
+      - database_mysql:/var/lib/mysql
+    networks:
+      - fullstack
+  
+volumes:
+  api:
+  database_mysql:                  
+
+networks:
+  fullstack:
+    driver: bridge

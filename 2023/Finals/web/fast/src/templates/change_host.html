@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block navtitle %}{% block title %}Change Hostname{% endblock %}{% endblock %}
+
+{% block content %}
+<div class="columns">
+  <div class="column is-half is-offset-one-quarter">
+    <div class="box">
+      <form method="post">
+        <div class="field">
+          <label class="label" for="hostname">Hostname</label>
+          <div class="control">
+            <input id="host" required class="input" name="host" id="host" placeholder="examplestats.com" required>
+          </div>
+        </div>
+        <div class="field is-grouped">
+          <p class="control is-expanded">
+            <input class="button is-danger" type="submit" value="Submit">
+          </p>
+        </div>
+      </form>
+      <p>
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

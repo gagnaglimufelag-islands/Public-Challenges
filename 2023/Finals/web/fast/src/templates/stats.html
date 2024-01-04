@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block navtitle %}{% block title %}Stats Overview{% endblock %}{% endblock %}
+
+{% block content %}
+<div class="columns">
+  <div class="column is-half is-offset-one-quarter">
+    <div class="box">
+      <code>
+        {% if data %}
+        {{ data }}
+        {% else %}
+        {"id":"fallback_stats_when_everything_fails","stats":1}
+        {% endif %}
+      </code>
+      <p>
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
