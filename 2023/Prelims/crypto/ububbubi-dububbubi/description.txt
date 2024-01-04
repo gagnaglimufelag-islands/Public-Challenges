@@ -1,0 +1,5 @@
+I just found this super secure encryption, that's about 10 times better then the boring old elliptic curve.
+The problem is I only know how to encrypt and I accidentally encrypted my brand new essays without knowing how to decrypt them.
+Could you help me?
+
+Inspired by "Forritunarkeppni framhaldskólanna"

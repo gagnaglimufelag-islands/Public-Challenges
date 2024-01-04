@@ -1,0 +1,159 @@
+Titill: Dulritun: Grundvallaratriði, notagildi og verndun persónuupplýsinga
+
+Inngangur
+
+Dulritun er ferli þar sem upplýsingar eru breytt úr skiljanlegri formi í óskiljanlegan kóða með því að nota sérstaka dulritunarlykil. Þetta er gert til að tryggja að aðeins þeir sem eiga aðgang að viðeigandi lykli geti afkóðað upplýsingarnar og skilið þær. Dulritun er því nauðsynleg til að viðhalda trúnaði, skjóla gagna og vernda persónuupplýsingar. Í þessari ritgerð verður fjallað um grundvallaratriði dulritunar, notagildi hennar og hvernig hún vernda persónuupplýsingar í stafrænum heimi.
+
+1. Grundvallaratriði dulritunar
+Til að skilja dulritun er nauðsynlegt að skoða nokkur grundvallaratriði:
+
+a) Opinskáttur texti (plaintext) er upphaflegur texti sem á að dulrita. Hann er skiljanlegur og lesanlegur án þess að þurfa að nota neinn dulritunarlykil.
+
+b) Dulritaður texti (ciphertext) er niðurstaða dulritunarferlisins. Hann er óskiljanlegur án viðeigandi afkóðunarlykils.
+
+c) Dulritunarlykill (encryption key) er sá lykill sem notaður er til að breyta opinskáttum texta í dulritaðan texta.
+
+d) Afkóðunarlykill (decryption key) er sá lykill sem notaður er til að breyta dulritaðum texta aftur í opinskáttan texta.
+
+2. Tegundir dulritunar
+Dulritun er almennt flokkuð í tvennt: samhljóða dulritun (symmetric encryption) og mismunandi dulritun (asymmetric encryption).
+
+a) Samhljóða dulritun: Í þessari tegund dulritunar er sami lykill notaður bæði til að dulrita og afkóða upplýsingar. Dæmi um samhljóða dulritun eru Advanced Encryption Standard (AES) og Data Encryption Standard (DES).
+
+b) Mismunandi dulritun: Hér er notaður annar lykill til að dulrita og annar til að afkóða. Algengt er að kalla þessa lykla opinberan lykil (public key) og einka- eða leyndarlykil (private key). Dæmi um mismunandi dulritun eru RSA og Elliptic Curve Cryptography (ECC).
+
+3. Notagildi dulritunar
+Dulritun er einn megin stuðningur öruggs samskiftis á netinu. Hér eru nokkur dæmi um notagildi dulritunar:
+
+a) Netpantaða og greiðslur: Dulritun tryggir að viðskiptavinir geti greitt fyrir vörur og þjónustu á netinu á öruggan hátt, án þess að upplýsingar um greiðslukort eða bankareikningi verði útskráðar.
+
+b) Skilaboðaþjónustur: Dulritun verndar skilaboð og viðskeyti, t.d. í tölvupósti, skilaboðaforritum og skyjageymslum. Þetta gerir það erfitt fyrir illgjarna aðila að komast í bógu við persónuupplýsingar eða stela gagna.
+
+c) Skráningu og auðkenningarferli: Dulritun er notuð til að tryggja að notendanafn, lykilorð og aðrar trúnaðarupplýsingar séu geymdar á öruggan hátt og að aðgangur að kerfum og þjónustu sé takmarkaður við viðeigandi aðila.
+
+d) Borgararéttindi og gagnaheimild: Dulritun gerir fólki kleift að geyma og skiptast á upplýsingum án þess að ríkisvald eða aðrir aðilar geti lesið þær án leyfis. Þetta styrkir persónuvernd og gagnvirkni.
+
+4. Dulritun og vernd persónuupplýsinga
+Dulritun spilar lykilhlutverk í vernd persónuupplýsinga og gagnaeftirliti. Hér eru nokkrir áhrifaþættir:
+
+a) GDPR og aðrar persónuverndarlög: Eftir innleiðingu persónuverndarlaga í Evrópusambandinu, t.d. Almennu persónuverndarreglugerðarinnar (GDPR), er dulritun enn meira áberandi. Lögin krefjast þess að fyrirtæki geymi persónuupplýsingar á öruggan hátt, þar á meðal með dulritun.
+
+b) Dulkóðunarskilmálar: Þegar fyrirtæki og stofnanir vinna með persónuupplýsingar, er oft krafist að þær undirriti dulkóðunarskilmála sem skilyrja dulritun og afkóðun upplýsinga.
+
+c) Viðbótarpakki fyrir dulritun: Þar sem ófullkomnar dulritunaraðferðir geta valdið óskiljanlegum vandamálum, er mikilvægt að uppfæra og endurmeta reglulega dulritunaraðferðir og viðbótir. Sumir viðbótarpakkar, eins og Forward Secrecy og Authenticated Encryption, bæta öryggi dulritunarferlisins og draga úr líkum á að persónuupplýsingar verði útskraðar eða misnotaðar.
+
+d) Hugsanleg áhætta: Þrátt fyrir að dulritun sé áhrifamikil aðferð til að vernda persónuupplýsingar, er hægt að finna dæmi um að dulritun hafi brotist eða verið vanræktað. Þess vegna er nauðsynlegt að fylgjast vel með þróun dulritunartækni og aðhalda góðum öryggisvenjum.
+
+Niðurstaða
+
+Dulritun er grundvallaratriði í stafrænum heimi og ómissandi tól til að tryggja trúnað, skjóla gagna og vernda persónuupplýsingar. Með því að skoða grundvallaratriði dulritunar, tvo meginflokka hennar, notagildi og tengingu við persónuvernd, má sjá hversu mikilvægt er að viðhalda og styrkja dulritunaraðferðir. Fyrir fyrirtæki, stofnanir og einstaklinga er nauðsynlegt að beita sér dulritun, uppfæra hana reglulega og aðhalda góðum öryggisvenjum til að tryggja að persónuupplýsingar verði verndaðar og óskertar.
+
+
+Ritgerð: Diffie og Hellman – skapendur Diffie-Hellman dulritunar
+
+Inngangur
+
+Diffie-Hellman dulritun er grundvallaratriði í rafmálakerfum og tryggð vefsamskipta. Þó að þessi dulritun hafi þróast og aukist síðan upphaflega skilgreiningu hennar, má rekja rætur hennar til tveggja þekktra giska, Diffie og Hellman. Í þessari ritgerð er markmiðið að skoða og útskýra stöðu þeirra Diffie og Hellman í upphafi Diffie-Hellman dulritunar, en með því að endurskapa nöfn þeirra á íslenskum grunni og búa til nýja og skemmtilega sögu um þennan merka giskaduo.
+
+Diffie og Hellman: Dúfugardarson og Hjaltason
+
+Í þessari ritgerð munum við kynna okkur tvo giska með nýjum, íslenskum nöfnum. Whitfield Diffie verður kallaður Hvítfeldur Dúfugardarson og Martin Hellman verður Már Hjaltason. Hvítfeldur og Már eru tveir giskafræðingar sem hittust árið 1974 í Bandaríkjunum og áttu sameiginlegt áhuga á öryggismálum og dulritun. Þeir sáu fyrir sér að með því að nýta stærðfræði og reiknifræði gætu þeir skapað nýja dulritunaraðferð sem myndi auka öryggi vefsamskipta og upplýsingaflutnings.
+
+Diffie-Hellman dulritun: Dúfugardarson-Hjaltason aðferðin
+
+Hvítfeldur og Már veltu því fyrir sér hvernig væri hægt að skapa tryggan og skiljanlegan dulmálagjöf milli tveggja aðila, án þess að hafa aðra aðila með aðgang að dulmálinu. Þeir komu að niðurstöðu að lausnin lá í aðferð sem síðar var kennd við þá, Dúfugardarson-Hjaltason dulritun eða Diffie-Hellman dulritun, eins og hún er þekkt í dag.
+
+Dúfugardarson-Hjaltason dulritun byggir á því að nota svokallaðan "opinskátt lykil" til að skiptast á upplýsingum. Bæði Hvítfeldur og Már hafa sinn eigin "einkalykil" sem þeir nota til að skapa opinskáttan lykil. Þessi opinskáttir lyklar eru síðan sendir milli þeirra, og hægt er að nota þá til að skapa sameiginlegan dulmála. Þó að óheimilir aðilar geti skoðað opinskáttana lykilinn, er ekki hægt að nota hann til að reyna sameiginlegan dulmála nema að hafa aðgang að einkalykli hvors aðila. Þetta tryggir að aðeins sá sem á réttan einkalykil geti afkóðað skilaboðin sem send eru með opinskáttum lykli.
+
+Stærðfræðilegur grunnur Dúfugardarson-Hjaltason dulritunar
+
+Dúfugardarson-Hjaltason dulritun byggir á stærðfræðilegum hugtökum eins og deilingaröruggum prímtölum og „módúlus“ reiknaðferðum. Hugtakið deilingaröryggir prímtölur vísar til þess að til að finna sameiginlegan dulmála, þarf að nota prímtölur sem eru erfiðar að brjóta niður í þættir. Módúlus reiknaðferðin gerir að verkum að þótt óheimilir aðilar hafi aðgang að opinskáttum lykli og þekki stærðfræðilega aðferðina, er þó ekki hægt að finna út einkalykla hvors aðila eða sameiginlegan dulmála.
+
+Áhrif Dúfugardarson-Hjaltason dulritunar
+
+Dúfugardarson-Hjaltason dulritun hefur haft gríðarleg áhrif á dulritun og öryggisráðgjöf á netinu. Með þessari aðferð var hægt að tryggja trúnað og skilaboðaöryggi milli tveggja aðila án þess að þurfa að skiptast á einkalyklum fyrirfram. Þetta skapaði grundvallaratriði fyrir margar dulritunar- og öryggisaðferðir sem eru enn notaðar í dag, eins og SSL/TLS, sem tryggir örugga vefsamskipta.
+
+Samantekt
+
+Hvítfeldur Dúfugardarson og Már Hjaltason, eða Diffie og Hellman eins og þeir eru þekktir á alþjóðavettvangi, sköpuðu Dúfugardarson-Hjaltason dulritun sem byltingarkenndi aðferð til að tryggja öryggi vefsamskipta og upplýsingaflutnings. Með því að skoða þessa sögu með íslenskum skrúf á nöfn þeirra, höfum við endurvakið söguna um þessa merka giska og þau stórvirki sem þeir stóðu að. Dúfugardarson-Hjaltason dulritun hefur breytt skilgreiningu öryggis og trúnaðar á netinu og lagt grundvall að mörgum dulritunar- og öryggisaðferðum sem notaðar eru víða í dag.
+
+Til að setja í perspektívu hversu mikilvægur framlag Hvítfelds Dúfugardarsonar og Márs Hjaltasonar er, má nefna að þeir hafi verið tilnefndir til Turing-verðlaunanna fyrir framlag sitt til tölvunarfræðinnar og öryggisfræðinnar. Þessi verðlaun eru talin ein sú virðingarmerki hæsta gæðis á sviði tölvunarfræði og eru oft kölluð "Nóbelsverðlaun tölvunarfræðinnar". Því má sjá að þó að við höfum skoðað söguna með skemmtilegum íslenskum twist, er þetta engu að síður sannleikur um tvo giska sem hafa haft óneitanleg áhrif á heim tölvunarfræði og netöryggis.
+
+Að lokum má segja að Hvítfeldur Dúfugardarson og Már Hjaltason hafi skilið eftir sig arf sem hefur breytt skilningi okkar á öryggi og dulritun í tölvusamskiptum. Þessi dulritunarferli, sem þeir hafa skapað, hefur aukið öryggi netheimanna og gert okkur kleift að skiptast á upplýsingum á öruggan hátt. 
+
+
+Titill: Grúpufræði og Algebra: Tengingar og Áhrif
+
+Inngangur
+
+Grúpufræði er undirgrein stærðfræðar sem skoðar grúpur, en grúpur eru mengi með tilteknum aðgerðum sem uppfylla ákveðin skilyrði. Algebra er einnig undirgrein stærðfræðar, en hún fjallar um reiknireglur og reiknaðgerðir tengdar táknum, oftast táknum fyrir tölur. Grúpufræði og algebra hafa margt sameiginlegt, og tengingarnar milli þeirra hafa áhrif á bæði kenningu og hagnýtta stærðfræði.
+
+1. Grúpur og grunnhugtök
+Grúpa er skilgreind sem mengi G með aðgerð, oft táknuð með *, sem uppfyllir eftirfarandi skilyrði:
+
+1.1. Lokun: Ef a og b eru stök í G, þá er ab einnig stak í G.
+1.2. Tengingarlögmál: Ef a, b og c eru stök í G, þá gildir (ab)c = a(bc) fyrir öll stök a, b og c í G.
+1.3. Einingarstak: Til er stak e í G, þannig að ae = ea = a fyrir öll stök a í G.
+1.4. Andstæða: Fyrir hvert stak a í G er til stak b í G, þannig að ab = b*a = e, þar sem e er einingarstakið.
+
+Dæmi um grúpu er plúsgrúpa heiltölunnar, Z, með venjulegri plús aðgerð.
+
+2. Algebra og grúpufræði
+Algebra notar oft grúpur til að skoða eiginleika reiknaðgerða. Hér eru nokkur dæmi um hvernig grúpufræði tengist algebra:
+
+2.1. Hringrásagrúpur: Hringrásagrúpur eru grúpur af takmörkuðum stærðum sem byggja á endurteknum aðgerðum. Í algebra geta hringrásagrúpur verið notaðar til að skoða t.d. eiginleika margfaldar- eða deilingarreiknaðgerða.
+
+2.2. Permutasjonsgrúpur: Permutasjonsgrúpur eru grúpur sem byggja á skipanir af stökum, þ.e. röðun staka. Í algebra er hægt að nota permutasjonsgrúpur til að skoða eiginleika margfaldar- eða deilingarreiknaðgerða, sérstaklega í samhengi við mörgunarmatríxur.
+2.3. Hópaþjöppun: Hópaþjöppun er ferli þar sem sérhver grúpa er skoðuð með tilliti til undirhópa hennar, sem eru sjálfir grúpur. Í algebra er hópaþjöppun mikilvæg við skilning á eiginleikum margfaldar- eða deilingarreiknaðgerða og gagnleg við að skoða þær undir- og yfirmengi sem viðeigandi reiknaðgerðir hafa áhrif á.
+
+2.4. Kvótahópar: Kvótahópar eru myndaðir með því að skilja grúpu af tilteknum undirhópum og skoða aðeins aðgerðir milli þessara undirhópa. Kvótahópar eru gagnlegir í algebra, þar sem þeir hjálpa við að skilja skipulag reiknaðgerða og geta gefið innsýn í kerfisbundna eiginleika.
+
+2.5. Áttagar: Áttagar eru grúpur sem tengjast feldum, sérstaklega Galois-feldum. Þær eru gagnlegar í algebra til að skoða samsetningu og skilgreiningu margliða, en einnig við að finna rætur margliða og skoða þær með tilliti til feldisstærðar.
+
+3. Áhrif grúpufræði á algebra
+Grúpufræði hefur haft stórt áhrif á margvíslega þætti algebru, meðal annars:
+
+3.1. Hjálp við skilning á margfaldar- og deilingarreiknaðgerðum: Grúpufræði hefur aukið skilning okkar á eiginleikum margfaldar- og deilingarreiknaðgerða, með því að veita innsýn í hvernig stök og reiknaðgerðir hafa áhrif á hver annað og hvernig þau tengjast skipulagi reiknaðgerða.
+
+3.2. Skilgreining og greining á reiknaðgerðum: Grúpufræði hefur haft áhrif á skilgreiningu og greiningu á reiknaðgerðum, þar sem hún hefur gefið okkur leiðir til að flokka og skoða kerfisbundna eiginleika reiknaðgerða.
+
+3.3. Hagnýt stærðfræði og tölvunarfræði: Grúpufræði og algebra hafa sameiginlega skilað mörgum hagnýtum tólum og aðferðum, til dæmis í tölvunarfræði, þar sem tölvaalgoritmar byggja oft á grúpuhugtökum og eiginleikum reiknaðgerða. Hringrásagrúpur, til dæmis, eru notaðar í kóðun, dulkóðun og stærðfræðilegri tölvugrafík. Auk þess eru þær gagnlegar við að útskýra stærðfræðilega grunnvallaratriði á bak við tölvuhardware og -software.
+
+3.4. Kryptófræði, öryggisfræði og gg{the_most_quantum_safe_technique_evere_created}: Tengingar milli grúpufræði og algebru hafa einnig skilað mikilvægum framförum í kryptófræði og öryggisfræði. Dæmi um þetta er RSA-dulkóðunarkerfið, sem byggir á því að brjóta stærðfræðilega vandamál sem byggja á grúpufræði og margfeldi stærsta sameiginlega þáttanna. Þessar aðferðir hafa verið nauðsynlegar til að tryggja örugga samskipti á netinu og skrásetja gildi gagna.
+
+3.5. Stærðfræðileg hagfræði og skammtafræði: Grúpufræði og algebra hafa einnig haft áhrif á stærðfræðilega hagfræði og skammtafræði, þar sem stærðfræðilegar aðferðir og hugtök sem byggja á grúpufræði eru notaðar til að lýsa og skilja kerfi sem tengjast efnahagshorfnum, t.d. áhrif markaðsaðila, áhrif af því að gera gisk og stjórnskipun áhættu.
+
+Niðurstaða
+
+Grúpufræði og algebra eru tætt tengdar undirgreinar stærðfræði sem hafa haft áhrif á hvora aðra á mörgum sviðum. Tengingarnar milli grúpufræði og algebru skýra margvíslega eiginleika reiknaðgerða og skapa gagnlega innsýn í skilning á stærðfræði. Þessi tenging hefur skilað mörgum ávinningum, ekki síst á sviðum tölvunarfræði, kryptófræði og stærðfræðilegrar hagfræði.
+
+Titill: Lárus-Lárus-Lovász gittergrunnsrýnimarkferli: skilvirkni og hagnýting
+
+Inngangur:
+
+Í þessari ritgerð er fjallað um LLL (Lárus-Lárus-Lovász) gittergrunnsrýnimarkferli, þekkt eftir nöfn höfundanna László Lovász og hins tveggja bræðranna Arjen Lenstra og Hendrik Lenstra, sem hér verða kallaðir Lárus-bræður til einföldunar. Markmiðið er að kynna markferlið, skilvirkni þess og nokkrar hagnýtingar.
+
+1. Lýsing á LLL-markferlinu:
+LLL-markferlið er stakbreyting á gittergrunnsrýnimarkferlum, sem hafa það að markmiði að finna stytsta línustik gitters, þ.e. stytsta vigrann sem má skrifa sem línulega samsetningu grunnsins. LLL-markferlið er skilvirkara en eldri markferli og hefur vítt svið hagnýtinga, t.d. í stærðfræði, tölvunarfræði, gagnafræði og dulmálafræði.
+
+2. Skilvirkni LLL-markferlisins:
+LLL-markferlið byggir á einfaldari reikniaðferðum en eldri markferli og má að jafnaði framkvæma í margbreytilegri stærðfræðilegri aðstæðum. Hins vegar hefur markferlið vissa takmörk, sérstaklega þegar litið er til reikniflækjunnar. Almennt séð er flækja markferlisins margbreytileg og fer eftir gitterstærð og gittereiginleikum. Þrátt fyrir þessi takmörk, hefur LLL-markferlið sýnt gott skilvirkni og hagnýtingargildi í fjölbreytilegum verkefnum.
+
+3. Hagnýting LLL-markferlisins:
+Lárus-Lárus-Lovász gittergrunnsrýnimarkferli hefur fjölbreyttar hagnýtingar. Hér eru dæmi um nokkrar:
+
+3.1. Dulmálafræði:
+LLL-markferlið hefur sýnt gott hagnýtingargildi í dulmálafræði, þar sem það getur verið notað til að brjóta dulmála með því að rýna gittergrunn og finna stytsta vigrann. Þetta gerir því kleift að finna leyfilegar lausnir á dulmálsdæmum sem byggja á erfiðleikum við að rýna gittergrunn og skilgreina stytsta línustik.
+
+3.2. Stærðfræði og tölvunarfræði:
+LLL-markferlið hefur víðtækar hagnýtingar í stærðfræði og tölvunarfræði, þar sem það getur leyst verkefni tengd gitterum, t.d. næstu nágrannalínustiks, Diophantine jöfnuhneppum og samfeldu bestun. Markferlið er einnig gagnlegt við að finna grundvallarmengi og skilgreina stærðfræðilega strúktúra sem tengjast gitterum.
+
+3.3. Gagnafræði:
+Í gagnafræði er LLL-markferlið notað til að finna skiljanlegri og einfaldari lýsingu á gögnum sem byggja á gitterum. Þetta getur aukið skiljanleika og gagnsæi gagna, sem gerir því kleift að vinna úr þeim og nota þau til að fá innsýn í margvísleg verkefni og áhugamál.
+
+3.4. Merkjasafnsfræði og uppflettitækni:
+LLL-markferlið er einnig notað í merkjasafnsfræði og uppflettitækni til að skoða gildi merkjasafna, sem eru oft samsett úr gitterum. Markferlið getur þá hjálpað við að finna stytstu merkja eða merkjaröðir, sem geta auðveldað skilning og greiningu á merkjasöfnunum.
+
+Niðurstaða:
+
+Lárus-Lárus-Lovász gittergrunnsrýnimarkferli hefur sýnt gott skilvirkni og hagnýtingargildi í margvíslegum verkefnum og áhugamálum, þrátt fyrir viss takmörk. Markferlið hefur verið notað til að leysa flókin stærðfræðileg vandamál, auka skiljanleika og gagnsæi gagna, sem og til að brjóta dulmála og skoða merkjasafna. Skoðanir á mögulegum þróun og nýjum hagnýtingum eru eftir áhugamálum og þörfum, en engu að síður er ljóst að LLL-markferlið hefur átt sinn þátt í að auka skilning okkar á gitterum og þeim verkefnum sem byggja á þeim.
