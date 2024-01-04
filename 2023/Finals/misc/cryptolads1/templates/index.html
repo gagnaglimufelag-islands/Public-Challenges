@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cryptolads - The Enigmatic Expedition</title>
+
+        <style type="text/css">
+            body {
+                width: 700px;
+                margin: 0 auto;
+                padding: 40px;
+            }
+
+            #code-wrapper {
+                margin-bottom: 10px;
+                border: 1px solid #2b5329;
+            }
+
+            #result-wrapper {
+                display: none;
+            }
+
+            #result {
+                border: 1px solid grey;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+                font-family: monospace;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+    <h1>The Enigmatic Expedition</h1>
+
+    <h2>Challenge Description:</h2>
+    <p>Welcome, brave programmers, to "The Enigmatic Expedition" – an exhilarating coding challenge that will put your skills to the ultimate test! Embark on a virtual journey to uncover the secrets of a lost civilization and master the art of discrete logarithms.</p>
+
+    <p>Your mission begins in the dense jungles of Cryptoria, a mysterious land untouched by time. Legends speak of an ancient artifact known as the "Cryptic Key," capable of unlocking unimaginable powers. However, the only way to obtain this key is to solve a series of complex mathematical puzzles, concealed by the guardians of the forgotten temple.</p>
+
+    <p>Deep within the temple lies an inscrutable number, meticulously guarded by the enigmatic Monks of Calculation. This number is your gateway to the Cryptic Key. Your task is to decipher the discrete logarithm of this number, enabling you to unravel the secrets of Cryptoria and claim your prize.</p>
+
+    <p>A discrete logarithm is the solution to an equation of the form <code>a^x ≡ b (mod m)</code>, where <code>a</code>, <code>b</code>, and <code>m</code> are given integers, and <code>x</code> is the unknown exponent. Your goal is to find the smallest positive integer <code>x</code> that satisfies this equation, enabling you to unlock the hidden knowledge.</p>
+
+    <p>Your journey will test your algorithmic prowess and mathematical acumen. Speed, precision, and efficiency are key to achieving victory. You must design an algorithm that can efficiently compute the discrete logarithm, even for large numbers and intricate modular arithmetic.</p>
+
+    <p>The artifact holds the key to a brighter future, but only those who can crack the mathematical enigma will be deemed worthy. Will you rise to the challenge and solve the riddle of the Cryptic Key? The fate of Cryptoria rests in your hands!</p>
+
+    <h2>Input:</h2>
+    <p>You will be given three integers: <code>a</code>, <code>b</code>, and <code>m</code> (1 ≤ <code>a</code>, <code>b</code>, <code>m</code> ≤ 2^1024), representing the base, exponent, and modulus of the discrete logarithm equation, respectively.</p>
+
+    <h2>Output:</h2>
+    <p>Your program should output a single positive integer <code>x</code>, the smallest solution to the equation <code>a^x ≡ b (mod m)</code>.</p>
+
+    <h2>Constraints:</h2>
+    <ul>
+        <li>The input integers will be within the range 1 ≤ <code>a</code>, <code>b</code>, <code>m</code> ≤ 2^1024.</li>
+        <li>Please refrain from including any print statements in your code, as they may interfere with the evaluation process.</li>
+    </ul>
+
+    <p>Note: In the spirit of competition, make sure your algorithm is efficient and optimized to handle large input values within the time limit. Good luck, and may the cryptic forces be with you!</p>
+
+        <form action="/submit" method="post">
+            <h2>Task</h2>
+            <p>
+                Write a Python function <tt>solve</tt> that takes the parameters <code>a</code>, <code>m</code>, <code>b</code>, in that order, and returns <code>x</code>.
+            </p>
+            <div id="code-wrapper">
+                <textarea name="code" id="code">
+def solve(a, m, b):
+  x = a
+  return x</textarea>
+            </div>
+            <input id="submit" type="submit" value="Submit" />
+        </form>
+
+        <div id="result-wrapper">
+            <h2>Result</h2>
+            <div id="result"></div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/solarized.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/python/python.min.js"></script>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript">
+            jQuery(function ($) {
+                var myCodeMirror = CodeMirror.fromTextArea(document.getElementById('code'), {
+                    lineNumbers: true,
+                    theme: 'solarized'
+                });
+                $('form').submit(function () {
+                    $('#submit').attr('disabled', true);
+                    $('#submit').val('Submitting...');
+                    $('#result-wrapper').hide();
+                    var code = $('#code').val();
+
+                    $.post('/submit', {
+                        code: code
+                    }, function (res) {
+                        $('#result').text(res);
+                        $('#result-wrapper').show();
+                        $('#submit').val('Submit');
+                        $('#submit').removeAttr('disabled');
+                    });
+
+                    return false;
+                });
+            })
+        </script>
+    </body>
+</html>
+

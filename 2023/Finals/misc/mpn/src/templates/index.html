@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block navtitle %}{% block title %}Megabytes per npm package{% endblock %}{% endblock %}
+
+{% block content %}
+<div class="content">
+  <h1 class="title">Don't trust npm</h1>
+  <p>
+  They claim one size, but the reality is almost always different. Let us check the <b>real</b> size of your dependencies.
+  </p>
+</div>
+  <div class="box">
+    <form method="post">
+      <div class="field">
+        <label class="label" for="package">Package</label>
+        <div class="control">
+          <input placeholder="owoifyx" class="input" name="package" id="package" value="{{ package }}" required>
+        </div>
+      </div>
+      <div class="field is-grouped">
+        <p class="control is-expanded">
+        <input class="button is-danger" type="submit" value="Check size!">
+        </p>
+      </div>
+    </form>
+    <p>
+    </p>
+  </div>
+  {% if results %}
+  <div class="tile">
+    <article class="tile is-child notification is-danger">
+      <p class="title">Results</p>
+      <div class="content">
+        The total size of the package is <b>{{ results }}</b>
+      </div>
+    </article>
+  </div>
+  {% endif %}
+  {% if stderr %}
+  <pre>
+    {{ stderr }}
+  </pre>
+  {% endif %}
+{% endblock %}

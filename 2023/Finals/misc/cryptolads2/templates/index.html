@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cryptolads - The Ciphered Chronicles</title>
+
+        <style type="text/css">
+            body {
+                width: 700px;
+                margin: 0 auto;
+                padding: 40px;
+            }
+
+            #code-wrapper {
+                margin-bottom: 10px;
+                border: 1px solid #2b5329;
+            }
+
+            #result-wrapper {
+                display: none;
+            }
+
+            #result {
+                border: 1px solid grey;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+                font-family: monospace;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+    <h1>The Ciphered Chronicles</h1>
+
+    <h2>Challenge Description:</h2>
+    <p>Welcome, aspiring codebreakers, to "The Ciphered Chronicles" – an extraordinary coding challenge that will push the boundaries of your cryptographic prowess! Prepare to embark on a thrilling adventure and unlock the secrets hidden within an encrypted message, shrouded in mystery.</p>
+
+    <p>Legend has it that in the distant land of Cryptonia, a brilliant sorceress named Evelyn has devised an encryption scheme so powerful that it has baffled even the most skilled cryptographers. Her spellbinding creation, the AES-ECB enigma, has become the talk of the realm.</p>
+
+    <p>In a twist of fate, a renowned historian has discovered an ancient artifact containing a ciphertext, rumored to reveal long-lost knowledge of a forgotten civilization. The ciphertext, encoded in the cryptic language of base64, is said to hold the key to unraveling the enigma that guards the wisdom within.</p>
+
+    <p>Your mission, intrepid programmer, is to decrypt the ciphertext and reveal the hidden message. But here's the catch: the encryption key is derived from the plaintext itself. Evelyn's mesmerizing encryption scheme uses a cunning technique where the characters of the plaintext play an enchanting role in generating the key.</p>
+
+    <p>Your goal is to implement an algorithm that decrypts the ciphertext and retrieves the original message, circumventing the need for the encryption key. The magical power of programming and your cryptographic prowess will be put to the ultimate test as you venture deeper into the realm of cryptanalysis.</p>
+
+    <p>Beware, for decrypting the ciphertext is no easy feat. The AES-ECB enigma is renowned for its resistance against traditional attacks. You must employ innovative strategies and delve into the realm of creative thinking to conquer this challenge. Will you rise to the occasion and break the spell that conceals the ancient wisdom within?</p>
+
+    <h2>Input:</h2>
+    <p>You will be given a base64-encoded ciphertext as input. The ciphertext represents the encrypted message, concealed by the AES encryption in Electronic Codebook (ECB) mode. You must devise an algorithm to decrypt this ciphertext without having access to the encryption key.</p>
+
+    <h2>Output:</h2>
+    <p>Your program should output the decrypted message as a string, revealing the hidden knowledge contained within the ciphertext.</p>
+
+    <h2>Constraints:</h2>
+    <ul>
+        <li>The length of the ciphertext will be within a reasonable range for computation.</li>
+        <li>The decrypted message will be in English, consisting of alphabetic characters, digits, punctuation, and whitespace.</li>
+        <li>Please refrain from including any print statements in your code, as they may interfere with the evaluation process.</li>
+    </ul>
+
+    <p>Note: To triumph over this challenge, you'll need to employ your ingenuity in cryptanalysis. Be prepared to explore various strategies, experiment with different approaches, and think outside the box. The secrets of the past await your decryption skills. Best of luck on your journey through The Ciphered Chronicles!</p>
+        <form action="/submit" method="post">
+            <h2>Task</h2>
+            <p>
+                Write a Python function <tt>decrypt</tt> that takes the parameter <code>ciphertext</code> and returns the decrypted text.
+            </p>
+            <div id="code-wrapper">
+                <textarea name="code" id="code">
+def decrypt(ciphertext):
+  return ciphertext</textarea>
+            </div>
+            <input id="submit" type="submit" value="Submit" />
+        </form>
+
+        <div id="result-wrapper">
+            <h2>Result</h2>
+            <div id="result"></div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/solarized.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/python/python.min.js"></script>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript">
+            jQuery(function ($) {
+                var myCodeMirror = CodeMirror.fromTextArea(document.getElementById('code'), {
+                    lineNumbers: true,
+                    theme: 'solarized'
+                });
+                $('form').submit(function () {
+                    $('#submit').attr('disabled', true);
+                    $('#submit').val('Submitting...');
+                    $('#result-wrapper').hide();
+                    var code = $('#code').val();
+
+                    $.post('/submit', {
+                        code: code
+                    }, function (res) {
+                        $('#result').text(res);
+                        $('#result-wrapper').show();
+                        $('#submit').val('Submit');
+                        $('#submit').removeAttr('disabled');
+                    });
+
+                    return false;
+                });
+            })
+        </script>
+    </body>
+</html>
+
