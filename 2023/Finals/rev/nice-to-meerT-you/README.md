@@ -5,7 +5,7 @@
 
 **Files:** [chall](./chall)
 
-**Ports:** 31737
+**Port:** 31737
 
 Henlo, my friend has perfected the instagram algorithm when it comes to hashtags.
 

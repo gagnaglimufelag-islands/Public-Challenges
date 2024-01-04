@@ -5,7 +5,7 @@
 
 **Files:** [server.py](./server.py)
 
-**Ports:** 32333
+**Port:** 32333
 
 bro, just use LLL to solve the problem.
 

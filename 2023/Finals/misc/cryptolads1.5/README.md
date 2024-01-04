@@ -3,6 +3,6 @@
 
 **Author:** hjalti
 
-**Ports:** 443
+**Port:** 443
 
 I found this, slightly revised, cool website where you can test your crypto skills!

@@ -8,6 +8,6 @@
 * [chal](./src/chal)
 * [makefile](./src/makefile)
 
-**Ports:** 31888
+**Port:** 31888
 
 As an astronaut, you are far from home. You need to journalize daily.

@@ -5,6 +5,6 @@
 
 **Files:** [chall](./src/chall)
 
-**Ports:** 31999
+**Port:** 31999
 
 This is the babiest of pwns but now with extra (annoying) steps!

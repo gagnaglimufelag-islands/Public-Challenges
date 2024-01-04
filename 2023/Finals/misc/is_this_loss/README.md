@@ -3,7 +3,7 @@
 
 **Author:** nielsing
 
-**Ports:** 32737
+**Port:** 32737
 
 A person I am following on twitter just made a cool collage out of all of their followers' profile images.
 Can you help me find me and my friends? You can find the image [here](https://twitter.com/David3141593/status/1642655368948973569)
