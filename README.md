@@ -6,9 +6,7 @@
 |Finals     |crypto   |[one_way_cbc](./2023/Finals/crypto/one_way_cbc)|GlacierSG          |
 |Finals     |crypto   |[rsa_shananigansa](./2023/Finals/crypto/rsa_shananigansa)|GlacierSG          |
 |Finals     |forensics|[hear-ye-hear-ye](./2023/Finals/forensics/hear-ye-hear-ye)|nielsing           |
-|Finals     |forensics|[incident](./2023/Finals/forensics/incident)|hjalti             |
 |Finals     |forensics|[medusa](./2023/Finals/forensics/medusa)|nielsing           |
-|Finals     |forensics|[pizza](./2023/Finals/forensics/pizza)|hjalti             |
 |Finals     |misc     |[cryptolads1](./2023/Finals/misc/cryptolads1)|hjalti             |
 |Finals     |misc     |[cryptolads1.5](./2023/Finals/misc/cryptolads1.5)|hjalti             |
 |Finals     |misc     |[cryptolads2](./2023/Finals/misc/cryptolads2)|hjalti             |

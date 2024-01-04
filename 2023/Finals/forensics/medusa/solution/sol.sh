@@ -1,0 +1,1 @@
+tshark -r data.pcapng -T fields -e ip.src -e dns.qry.name | rg '[A-Z0-9]{15,}\.mbI.is' -o | cut -d '.' -f1 | base32 -d | rg -- '-9-' | rg '[A-Z0-9]{21,}' -o | uniq | tr -d '\n' | base32 -d | base64 -d | base32 -d | base64 -d | rg 'gg\{[^}]*\}'
