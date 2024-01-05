@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block navtitle %}{% block title %}You can choose the base, but they all belong to us{% endblock %}{% endblock %}
+
+{% block content %}
+<div>
+  <form method="POST" action="/" class="content" enctype="multipart/form-data">
+    <div class="field">
+      <textarea placeholder="Text to encode" class="textarea" rows="12" name="text" style="font-family: monospace;">{{ text }}</textarea>
+    </div>
+    <div class="field">
+      <div class="file has-name">
+        <label class="file-label">
+          <input class="file-input" type="file" name="file">
+          <span class="file-cta">
+            <span class="file-label">
+              Choose a file…
+            </span>
+          </span>
+          <span class="file-name">
+            {% if filename %}
+              {{ filename }}
+            {% else %}
+            <i>Encode a file</i>
+            {% endif %}
+          </span>
+        </label>
+      </div>
+    </div>
+    <div class="field is-grouped">
+      <div class="control">
+        <div class="select">
+          <select name="base">
+            {% for id, name in bases %}
+            <option value="{{ id }}" {% if id == base %}selected{% endif %}>{{ name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+      <div class="control">
+        <button type="submit" class="button is-primary">Encode</button>
+      </div>
+    </div>
+  </form>
+  {% if result %}
+  <div class="box" style="font-family: monospace; word-break: break-all;">
+    {{ result | safe }}
+  </div>
+  {% endif %}
+
+  {% if rid %}
+  <div class="tile">
+    <div class="content">
+      Are these results inaccurate? Let us know and we'll take a look.
+      <div>
+        <form action="/report" method="POST">
+          <input type="hidden" value="{{ rid }}" name="result_id">
+          <button type="submit" class="button">Report a problem</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}

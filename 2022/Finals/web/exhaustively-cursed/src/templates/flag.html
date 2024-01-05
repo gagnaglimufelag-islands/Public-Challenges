@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <p>
+  <h3>Flags</h3>
+    <ul>
+      <li> {{ flag }} </li>
+    </ul>
+  </p>
+{% endblock %}

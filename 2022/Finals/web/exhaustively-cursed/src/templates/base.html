@@ -1,0 +1,19 @@
+<!doctype html>
+<head>
+    <title>Free HTTP IP Scanner - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <h1><a href="{{ url_for('index') }}">Scan any IP for HTTP</a></h1>
+        <ul>
+        </ul>
+    </nav>
+    <section class="content">
+        <header>
+            {% block header %}Used by Hackers Around The World{% endblock %}
+        </header>
+        {% block content %}Used by Hackers Around The World{% endblock %}
+    </section>
+</body>
+

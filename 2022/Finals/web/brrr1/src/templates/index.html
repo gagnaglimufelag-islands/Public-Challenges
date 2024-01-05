@@ -1,0 +1,278 @@
+{% extends 'base.html' %}
+
+{% block navtitle %}{% block title %}Let's play a game{% endblock %}{% endblock %}
+
+{% block content %}
+
+<div class="columns">
+  <div class="column is-three-fifths is-offset-one-fifth">
+    <div class="content">
+      <h3>Rules</h3>
+      <ol>
+        <li>Your opponent starts by choosing a sequence of three red and black cards.</li>
+        <li>After your opponent has started, you will get a chance to choose your own sequence of red and black cards, but not the same as your opponent's.</li>
+        <li>The computer will then draw cards from a shuffled 52 card deck until one of the chosen sequences of red and black cards is revealed. If that sequence is yours, you win; otherwise your opponent does. If neither sequence appears, the deck is shuffled and cards drawn again.</li>
+        <li>If you win 100 out of 100 games, you will get a flag.</li>
+      </ol>
+    </div>
+    <div class="box block">
+      <nav class="level">
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Total games</p>
+            <p id="plays" class="title">{{ game.plays }}</p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Wins</p>
+            <p id="wins" class="title">{{ game.wins }}</p>
+          </div>
+        </div>
+      </nav>
+      <section id="flag-hero" {% if not game.flag %}style="display: none;"{% endif %} class="hero is-success block">
+        <div class="hero-body">
+          <p class="title has-text-centered">
+            Winner winner, chicken dinner
+          </p>
+          <p id="flag-text" class="subtitle has-text-centered">
+          {{ game.flag or '' }}
+          </p>
+        </div>
+      </section>
+      <div class="block" id="cups" {% if game.done %}style="display: none;"{% endif %}>
+      <h3 class="has-text-centered">Your opponent chose</h3>
+      <div class="card-container" id="computer-cards">
+        <span class="pcard {% if game.computer_seq[0] %}red{% endif %}">🂠</span>
+        <span class="pcard {% if game.computer_seq[1] %}red{% endif %}">🂠</span>
+        <span class="pcard {% if game.computer_seq[2] %}red{% endif %}">🂠</span>
+      </div>
+      <h3 class="has-text-centered">Choose your sequence</h3>
+      <div class="card-container content">
+        <div class="card-radio-group">
+          <input class="card-input black" type="radio" id="c1b" name="card1" value="B">
+          <label class="black" for="c1b">🂠</label>
+          <input class="card-input red" type="radio" id="c1r" name="card1" value="R">
+          <label class="red" for="c1r">🂠</label>
+          <div class="pcard">🂠</div>
+        </div>
+        <div class="card-radio-group">
+          <input class="card-input black" type="radio" id="c2b" name="card2" value="B">
+          <label class="black" for="c2b">🂠</label>
+          <input class="card-input red" type="radio" id="c2r" name="card2" value="R">
+          <label class="red" for="c2r">🂠</label>
+          <div class="pcard">🂠</div>
+        </div>
+        <div class="card-radio-group">
+          <input class="card-input black" type="radio" id="c3b" name="card3" value="B">
+          <label class="black" for="c3b">🂠</label>
+          <input class="card-input red" type="radio" id="c3r" name="card3" value="R">
+          <label class="red" for="c3r">🂠</label>
+          <div class="pcard">🂠</div>
+        </div>
+      </div>
+      <div class="field is-grouped is-grouped-centered">
+        <p class="control">
+        <button id="play-btn" disabled class="action button is-large is-{{theme}}" onclick="play()">Play</button>
+        </p>
+      </div>
+      </div>
+      <div style="display: none;" id="draw" class="field is-grouped is-grouped-centered">
+        <article class="message is-{{ theme }}">
+          <h3 class="has-text-centered title message-header" style="justify-content: center;">
+              Card Draw
+          </h3>
+          <div id="draw-cards" class="message-body card-container">
+        </article>
+        <p class="content">
+          <div id="status-notification" class="notification">
+          <h1 id="status" class="title has-text-centered"></h1>
+          </div>
+        </p>
+        <div class="field is-grouped is-grouped-centered">
+          <button id="cont-btn" class="is-light action button is-large is-{{theme}}" onclick="cont()">Continue</button>
+        </div>
+      </div>
+      <div class="block" id="reset" {% if not game.done %}style="display: none;"{% endif %} >
+        <div class="field is-grouped is-grouped-centered">
+          <p class="control">
+          <button class="is-outlined button is-large is-danger" onclick="resetGame()">Restart game</button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script>
+  let computer_seq = {{ game.computer_seq_str | safe }}
+
+  let elements = document.getElementsByClassName('card-input')
+  for (let i = 0; i < elements.length; i++) {
+    elements[i].addEventListener('change', (event) => {
+        updatePlay()
+    })
+  }
+
+  function userSelection() {
+      let sel = [document.querySelector('input[name="card1"]:checked')?.value,
+                 document.querySelector('input[name="card2"]:checked')?.value,
+                 document.querySelector('input[name="card3"]:checked')?.value]
+      if (sel[0] && sel[1] && sel[2]) {
+          return sel;
+      }
+      return null;
+  }
+
+  function clearSelection() {
+    let elements = document.getElementsByClassName('card-input')
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].checked = false;
+    }
+  }
+
+  function disableSelection(val) {
+    let elements = document.getElementsByClassName('card-input')
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].disabled = val;
+    }
+  }
+
+  function updateComputerCards() {
+    let element = document.getElementById('computer-cards')
+    let cards = element.children
+    for (let i = 0; i < cards.length; i++) {
+      if (computer_seq[i] == 'R') {
+          cards[i].classList.add('red')
+      } else {
+          cards[i].classList.remove('red')
+      }
+    }
+  }
+
+  function updatePlay() {
+    if (userSelection()) {
+      document.getElementById('play-btn').disabled = false
+    } else {
+      document.getElementById('play-btn').disabled = true
+    }
+  }
+
+  updatePlay()
+
+  function disablePlay() {
+      document.getElementById('play-btn').disabled = true
+  }
+
+  function reset() {
+    let elements = document.getElementsByClassName('action')
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].disabled = false
+      elements[i].classList.add('is-info')
+      elements[i].classList.add('is-outlined')
+      elements[i].classList.remove('is-dark')
+    }
+  }
+  function resetGame() {
+    let resp = fetch('/api/reset', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'same-origin',
+    })
+    .then(response => response.text())
+    .then(res => {
+        window.location.reload();
+    })
+  }
+  function select(cup) {
+    document.getElementById(`action-${cup}`).classList.remove('is-outlined')
+  }
+  function setEmpty(cup) {
+    document.getElementById(`action-${cup}`).classList.remove('is-info')
+    document.getElementById(`action-${cup}`).classList.remove('is-outlined')
+    document.getElementById(`action-${cup}`).classList.add('is-dark')
+  }
+  function play() {
+    const seq = userSelection()
+    if (!seq) {
+      return
+    }
+    if (seq.join('') == computer_seq.join('')) {
+      alert('You cannot choose the same sequence as your opponent')
+      return
+    }
+    disablePlay()
+    disableSelection(true)
+    let resp = fetch('/api/play', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'same-origin',
+      body: JSON.stringify({'seq': seq}),
+    })
+      .then(response => response.text())
+      .then(resp => {
+        let data = JSON.parse(resp)
+        document.getElementById('plays').innerHTML = data.plays
+        document.getElementById('wins').innerHTML = data.wins
+        if (data.win) {
+            document.getElementById('status-notification').classList.remove('is-warning')
+            document.getElementById('status-notification').classList.add('is-success')
+        } else {
+            document.getElementById('status-notification').classList.add('is-warning')
+            document.getElementById('status-notification').classList.remove('is-success')
+        }
+        document.getElementById('status').innerHTML = data.win ? 'You won!' : 'You lost :('
+
+        document.getElementById('draw').style.display = 'block'
+        const drawCards = document.getElementById('draw-cards')
+        drawCards.innerHTML = ''
+        for (let i = 0; i < data.draw.length; i++) {
+          var card = document.createElement('span');
+          card.classList.add('pcard')
+          if (data.draw[i].red) {
+              card.classList.add('red')
+          } else {
+              card.classList.add('black')
+          }
+          card.innerHTML = data.draw[i].card
+          drawCards.appendChild(card)
+        }
+
+        if (data.done) {
+            document.getElementById('reset').style.display = 'block'
+            document.getElementById('cont-btn').disabled = true
+        }
+      })
+  }
+
+  function cont() {
+    clearSelection()
+    disableSelection(false)
+    document.getElementById('draw').style.display = 'none'
+
+    let resp = fetch('/api/start', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'same-origin',
+    })
+      .then(response => response.text())
+      .then(resp => {
+        let data = JSON.parse(resp)
+        document.getElementById('plays').innerHTML = data.plays
+        document.getElementById('wins').innerHTML = data.wins
+        computer_seq = data.computer_seq
+        updateComputerCards()
+      })
+  }
+</script>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Used by Hackers Around the World{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  {% if error_message %}
+      <div class="flash">{{ error_message }}</div>
+  {% endif %}
+
+
+  <form method="post">
+    <label for="ip">Enter IP to scan</label>
+    <input name="ip" id="ip" value="{{ ip }}">
+    <label for="path">Path if applicable</label>
+    <input name="path" id="path" value="{{ path }}">
+    <input type="submit" value="SCAN!">
+  </form>
+
+  {% if result %}
+  <h3>HTTP found on {{ ip }}, answer:</h3>
+  <hr>
+  <code><pre class="break-word">{{ result }}</pre></code>
+  {% endif %}
+{% endblock %}
+
