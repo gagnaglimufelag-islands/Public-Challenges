@@ -1,0 +1,74 @@
+<!doctype html>
+{% set title = "BRRRRRRRRR2" %}
+{% set theme = "info" %}
+{% set favicon = "🥛" %}
+<html>
+  <head>
+    <title>{{ title }} - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bulma.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>{{ favicon }}</text></svg>">
+  </head>
+  <body>
+    <nav class="navbar is-{{ theme }}">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="{{ url_for('index') }}">
+            <h3 class="content is-large">{{ title }}</h3>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero is-{{ theme }}">
+
+      <!-- Hero content: will be in the middle -->
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <p class="title">
+          {% block navtitle %}{% endblock %}
+          </p>
+          <p class="subtitle">
+          {% block navsubtitle %}{% endblock %}
+          </p>
+        </div>
+      </div>
+
+    </section>
+    <section class="section">
+      <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="notification is-light {% if category == 'error' %}is-danger{% elif category == 'warning' %}is-warning{% else %}is-success{% endif %}">
+          <button class="delete"></button>
+          {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <div class="content">
+        {% block content %}{% endblock %}
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="content has-text-centered">
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+          const $notification = $delete.parentNode;
+
+          $delete.addEventListener('click', () => {
+            $notification.parentNode.removeChild($notification);
+          });
+        });
+      });
+    </script>
+
+  </body>
+</html>
