@@ -1,0 +1,12 @@
+Flask
+Flask-SQLAlchemy
+Jinja2
+MarkupSafe
+SQLAlchemy==1.4.41
+SQLAlchemy-Utils==0.38.3
+Werkzeug==2.2.2
+itsdangerous==2.1.2
+Flask-SQLAlchemy==2.5.1
+requests==2.25.1
+python-magic==0.4.24
+flask_cors==3.0.10

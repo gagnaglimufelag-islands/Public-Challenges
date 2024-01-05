@@ -1,0 +1,11 @@
+FROM python:3
+ADD app/requirements.txt app/requirements.txt
+RUN ["pip","install","-r","app/requirements.txt"]
+ADD app app
+
+ADD crontab /etc/crontab
+WORKDIR /app
+RUN rm db.db
+RUN python3 models.py
+ENTRYPOINT ["python3", "app.py"]
+EXPOSE 80

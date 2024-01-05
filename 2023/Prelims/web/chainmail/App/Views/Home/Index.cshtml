@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="columns">
+  <div class="column is-three-fifths is-offset-one-fifth">
+    <div class="box">
+        <div class="field">
+          <label class="label" for="postcode">Postcode</label>
+          <div class="control">
+            <input class="input" name="postcode" placeholder="101" id="postcode" required>
+          </div>
+        </div>
+        <div class="field is-grouped">
+          <p class="control is-expanded">
+          <button class="button is-{{ theme }}" onclick="submit()">Submit</button>
+          </p>
+        </div>
+      <p>
+      </p>
+    </div>
+    <article class="message is-dark">
+      <h1 class="message-header">
+        <h3>Response</h3>
+      </div>
+      <div class="message-body">
+        <p>
+        <b id="status-code"></b>
+        </p>
+        <pre id="response"></pre>
+      </div>
+    </article>
+  </div>
+</div>
+
+<script>
+  function submit() {
+    let query = document.getElementById('postcode').value;
+    let resp = fetch('/home/postcodes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        postcode: query,
+      }),
+    })
+      .then(response => {
+        document.getElementById('status-code').innerHTML = `Status code: ${response.status}`
+        return response.text()
+      })
+      .then(resp => {
+        document.getElementById('response').innerHTML = resp
+      })
+    return false;
+  }
+</script>
+

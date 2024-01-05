@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <title>😎SO fresh SO clean😎</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+          <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/cart">Cart</a></li>
+          </ul>
+      </nav>
+      <h1>Welcome to the freshest and cleanest shopping website</h1>
+    </header>
+    <p>Please choose from the following fresh & clean drip:</p>
+    <ul>
+      <li>
+          <p>hat</p>
+          <img height="150" src="https://cdn.shopify.com/s/files/1/0177/2424/products/HO19-HATS_0014_Layer_2_copy_1024x1024.jpg" alt="hat">
+      </li>
+      <li>
+          <p>sock</p>
+          <img height="150" src="https://balenciaga.dam.kering.com/m/4cefd01b38430974/Medium-540615372B45960_F.jpg" alt="sock">
+      </li>
+      <li>
+          <p>leg</p>
+          <img height="150" src="https://i.pinimg.com/originals/f1/31/97/f13197a91ad4cec3464047d37b888493.jpg" alt="leg">
+      </li>
+      <li>
+          <p>flag</p>
+          <img height="150" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Flag_of_the_Kalmar_Union.svg/1200px-Flag_of_the_Kalmar_Union.svg.png" alt="flag">
+      </li>
+      <li>
+          <p>soap</p>
+          <img height="150" src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Handmade_soap_cropped_and_simplified.jpg" alt="soap">
+      </li>
+    </ul>
+    <form id="itemform" method="POST" action="/cart">
+      <label for="item">Or select an item:</label>
+      <select id="item" name="item">
+        <option value="hat">hat</option>
+        <option value="sock">sock</option>
+        <option value="leg">leg</option>
+        <option value="flag">flag</option>
+        <option value="soap">soap</option>
+      </select>
+      <input type="submit" value="Add to cart">
+    </form>
+    <div id="error-message" style="display:none; color:#FFA0A0;"><h2>Invalid item!</h2></div>
+    <footer>
+      <p>&copy; 2023 My Online Shop</p>
+	</footer>
+    <script>
+      function handleFormSubmit(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const xmlString = formDataToXml(formData);
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '/cart', true);
+        xhr.setRequestHeader('Content-Type', 'text/xml');
+        xhr.onreadystatechange = function() {
+          if(this.readyState === XMLHttpRequest.DONE) {
+            const errorMessage = document.getElementById('error-message');
+            errorMessage.style.display = 'block';
+            if (this.status === 400) {
+              errorMessage.innerHtml = "<h2>Invalid item!</h2>";
+            } else if (this.status === 500) {
+              errorMessage.innerHtml = "<h2>Oh no you broke it!</h2>";
+            } else if (this.status === 200) {
+                document.write(this.responseText);
+            }
+          }
+        }
+        xhr.send(xmlString);
+      }
+      
+      function formDataToXml(formData) {
+        var retVal = null;
+        var count = 0;
+        for (const pair of formData.entries()) {
+          count++;
+          if (count > 1) {
+              return "Failed parsing";
+          }
+          const [name, value] = pair.map(window.encodeURIComponent);
+          retVal = `<${name}>${value}</${name}>`;
+        }
+        return retVal;
+      }
+      
+      const form = document.getElementById('itemform');
+      form.addEventListener('submit', handleFormSubmit);
+    </script>
+  </body>
+</html>
+

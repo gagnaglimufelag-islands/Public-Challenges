@@ -1,0 +1,134 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: $label-$id-ingress
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/redirect-entry-point: https
+    traefik.ingress.kubernetes.io/preserve-host: "true"
+spec:
+  tls:
+  - hosts:
+    - $subdomain.$domain
+    secretName: star-domain-tls
+  rules:
+  - host: $subdomain.$domain
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+              name: cloud
+              port:
+                  number: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloud
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app: $label-$id-cloud
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: $label-$id-cloud
+  labels:
+    app: $label-$id-cloud
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: $label-$id-cloud
+  template:
+    metadata:
+      labels:
+        app: $label-$id-cloud
+    spec:
+      enableServiceLinks: false
+      containers:
+      - name: $label-$id-cloud
+        image: $dockertag/cloud-server:latest
+        volumeMounts:
+          - mountPath: /app/files
+            name: shared-volume
+        ports:
+        - containerPort: 80
+        securityContext:
+          privileged: $privileged
+      imagePullSecrets:
+        - name: registry-secret
+      volumes:
+        - name: shared-volume
+          persistentVolumeClaim:
+            claimName: shared-volume
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fileserver
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app: $label-$id-fileserver
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: $label-$id-fileserver
+  labels:
+    app: $label-$id-fileserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: $label-$id-fileserver
+  template:
+    metadata:
+      labels:
+        app: $label-$id-fileserver
+    spec:
+      enableServiceLinks: false
+      containers:
+      - name: $label-$id-fileserver
+        image: $dockertag/fileserver:latest
+        ports:
+        - containerPort: $port
+        volumeMounts:
+          - mountPath: /files
+            name: shared-volume
+      imagePullSecrets:
+        - name: registry-secret
+      volumes:
+        - name: shared-volume
+          persistentVolumeClaim:
+            claimName: shared-volume
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: shared-volume
+  name: shared-volume
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1000Mi
+status: {}

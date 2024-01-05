@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  cloud:
+    build: cloud-server
+    restart: always
+    container_name: cloud
+    depends_on:
+      - fileserver
+    links:
+      - "fileserver"
+    ports:
+      - "5000:80"
+
+    volumes:
+      - shared-volume:/app/files
+
+  fileserver:
+    build: fileserver
+    container_name: fileserver
+    volumes:
+      - shared-volume:/files
+
+
+
+
+
+volumes:
+  shared-volume:

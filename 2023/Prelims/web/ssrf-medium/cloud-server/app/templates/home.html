@@ -1,0 +1,107 @@
+<html>
+    <head>
+        <title>File explorer</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+<body>
+    <div id="main" >
+        <top id="top">
+            <span id="title"><h1>Cloud file explorer</h1></span>
+            <span id="upload" onclick="upload_form()"> <b>Upload a file </b><img  src="{{ url_for('static', filename='upload.png') }}" /></span>
+        </top>
+        <div style="width: 100%; text-align: center;"> <p> ! NEW ! You can change the top-bar color by uploading a cnf file containing {"color":your-color} </p></div>
+
+        <div class="float-container">
+            <div class="float-child" >
+            <table id="files" >
+               <tr><th>File name</th><th>Actions</th></tr>
+            </table>
+            </div>
+            <div class="float-child" id="preview" >
+                <h2 id="title_2">Preview</h2>
+                <div id="append"></div>
+
+            </div>
+        </div>
+        </div>
+</body>
+<script>
+
+    init_files()
+
+    function init_files(){
+    var xhr= new XMLHttpRequest()
+    xhr.open("get","/cloud/list",true)
+    xhr.overrideMimeType('application/json');
+    xhr.onload = listener;
+    xhr.send()
+    }
+
+    function listener()
+    {
+        var jsonResponse = JSON.parse(this.responseText);
+        jsonResponse.forEach(element => {
+
+            if(element.filename.includes(".cnf")){
+                document.getElementById("files").innerHTML += "<tr class='row' ><td > <img class=file src='{{ url_for('static', filename='file.png') }}'/>"
+                + element.filename +"</td><td class=action><img onclick=get_config('"+element.id+ "') class=icon src='{{ url_for('static', filename='cog.png') }}' ></td></tr>"
+            }
+            else{
+                document.getElementById("files").innerHTML += "<tr class='row' onclick=view('"+element.id+ "') ><td > <img class=file src='{{ url_for('static', filename='file.png') }}'/>"
+                + element.filename +"</td><td class=action><img onclick=view('"+element.id+ "') class=icon src='{{ url_for('static', filename='view.png') }}' >\
+                    <img class=icon onclick=download('"+element.id+ "') src='{{ url_for('static', filename='download.png') }}' /></td></tr>"
+            }
+        });
+    }
+
+
+    function get_config(id){
+        var xhr= new XMLHttpRequest()
+        xhr.open("get","/cloud/fetch?file_id=" + id + "&view=true",true)
+        xhr.overrideMimeType('application/json');
+        xhr.onload = apply_config;
+        xhr.send()
+    }
+
+    function apply_config(){
+        var jsonResponse = JSON.parse(this.responseText);
+        try {
+            document.getElementById("top").style.backgroundColor=jsonResponse["color"];
+            alert("New config has been applied")
+        } catch (error) {
+            console.log("Oh no, this is so sad…")
+        }
+    }
+
+    function view(id){
+       document.getElementById("append").innerHTML = "<iframe allowtransparency='true' width='1000000' src='/cloud/fetch?file_id=" + id + "&view=true'/>"
+       document.getElementById("title_2").innerHTML = "Preview"
+    }
+
+    function download(id){
+        window.open("/cloud/fetch?file_id=" + id + "&download=true","_blank")
+    }
+
+    function upload_form(){
+        document.getElementById("append").innerHTML = "<input type=file id=filename name=file><input type=submit value=Upload onclick=upload() >"
+        document.getElementById("title_2").innerHTML = "Upload a new file"
+    }
+
+    function upload(){
+        let content = document.getElementById("filename").files[0];
+        let entry = document.getElementById("filename").files[0];
+        const formData = new FormData();
+        formData.append("file", entry);
+        fetch("/cloud/upload", {
+        method: "post",
+        body: formData,
+    }).catch((error) => ("Something went wrong!", error)).then((response) => { refresh()});
+    }
+
+    function refresh(){
+        document.getElementById("files").innerHTML  = ""
+        init_files()
+    }
+
+    </script>
+</html>

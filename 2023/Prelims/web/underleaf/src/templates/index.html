@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UnderLeaf - LaTeX to PDF Converter</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		/* Add styles here */
+		body {
+			background-color: #f8f8f8;
+			font-family: Arial, sans-serif;
+			color: #444;
+			padding: 0;
+			margin: 0;
+		}
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+			box-sizing: border-box;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0,0,0,0.2);
+			border-radius: 5px;
+			margin-top: 30px;
+			margin-bottom: 30px;
+		}
+		h1, h2 {
+			margin-top: 0;
+			text-align: center;
+		}
+		label {
+			display: block;
+			margin-bottom: 10px;
+		}
+		input[type="submit"] {
+			display: block;
+			margin: 20px auto 0;
+			padding: 10px 20px;
+			background-color: #4CAF50;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			cursor: pointer;
+		}
+		form {
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>UnderLeaf</h1>
+		<h2>LaTeX to PDF Converter</h2>
+		<form method="POST" action="/genpdf">
+			<textarea id="text" name="text" rows="25" cols="80">\documentclass{article}
+\begin{document}
+\[
+  \oint_{m}^g lol dx
+\]
+\end{document}</textarea>
+			<input type="submit" value="Convert to PDF">
+		</form>
+	</div>
+</body>
+</html>

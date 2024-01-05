@@ -1,0 +1,7 @@
+FROM python:3
+RUN mkdir /files
+RUN mkdir /app
+ADD server.py /app/server.py
+EXPOSE 80
+WORKDIR /files
+ENTRYPOINT ["python3", "/app/server.py"]
