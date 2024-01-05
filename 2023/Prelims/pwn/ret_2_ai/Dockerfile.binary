@@ -1,0 +1,9 @@
+FROM ubuntu:20.04
+
+RUN apt-get update && apt-get install -y gcc make
+
+WORKDIR /build
+COPY main.c /build
+COPY makefile /build
+RUN make
+ENTRYPOINT cat ai

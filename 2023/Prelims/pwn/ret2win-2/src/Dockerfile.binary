@@ -1,0 +1,8 @@
+FROM ubuntu:22.10 AS bin
+
+RUN apt-get update && apt-get install -y gcc gcc-multilib make
+
+WORKDIR /build
+COPY chal.c Makefile /build/
+RUN make
+ENTRYPOINT cat chal

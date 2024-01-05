@@ -43,6 +43,7 @@
 |Prelims    |linux    |[Neural Networking 2](./2023/Prelims/linux/Neural_Networking_2)|GPT/hjalti         |
 |Prelims    |linux    |[Neural Networking 3](./2023/Prelims/linux/Neural_Networking_3)|GPT/hjalti         |
 |Prelims    |linux    |[Neural Networking 4](./2023/Prelims/linux/Neural_Networking_4)|GPT/hjalti         |
+|Prelims    |linux    |[Neural Networking 4.5](./2023/Prelims/linux/Neural_Networking_4.5)|GPT/hjalti         |
 |Prelims    |linux    |[Neural Networking 5](./2023/Prelims/linux/Neural_Networking_5)|GPT/nielsing/hjalti|
 |Prelims    |misc     |[clock-fixing-sawyer](./2023/Prelims/misc/clock-fixing-sawyer)|hjalti             |
 |Prelims    |misc     |[Elaris3](./2023/Prelims/misc/Elaris3)|ZeroCooL           |

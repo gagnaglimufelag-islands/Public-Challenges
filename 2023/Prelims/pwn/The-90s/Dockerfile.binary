@@ -1,0 +1,8 @@
+FROM ubuntu:20.04
+
+RUN apt-get update && apt-get install -y gcc gcc-multilib make
+
+WORKDIR /build
+COPY src/ /build
+RUN ./build.sh
+ENTRYPOINT cat 90-s
