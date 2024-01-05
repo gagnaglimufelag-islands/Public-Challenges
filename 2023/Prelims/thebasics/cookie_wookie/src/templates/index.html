@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Blog posts{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    {% for post in posts %}
+        {% if post['published'] or (auth.get('user') == 'admin' and auth.get('is_admin')) %}
+            <article class="post {{ 'draft' if not post['published'] else '' }}">
+                <header>
+                    <div>
+                        <h1>{{post['title']}} {{ '(draft)' if not post['published'] else '' }}</h1>
+                        <div class="about">by {{post['author']}} on {{post['date']}}</div>
+                    </div>
+                </header>
+                <p class="body">{{post['content'] | safe}}</p>
+            </article>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

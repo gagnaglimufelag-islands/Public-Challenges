@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1 class=".header">{% block title %}Super Secret Internal Stuff{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<h2 class=".main-content">Welcome back {{ auth }}</h2>
+{% if auth == "admin" %}
+<h2 class=".main-content">{{ flag }}</h2>
+{% else %}
+<h2 class=".main-content">You currently have no secrets to look at 🙁</h2>
+{% endif %}
+{% endblock %}

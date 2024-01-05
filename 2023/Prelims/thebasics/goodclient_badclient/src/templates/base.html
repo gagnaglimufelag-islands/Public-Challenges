@@ -1,0 +1,23 @@
+<!doctype html>
+<head>
+    <title>Employee Intranet - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <h1 class=".header"><a href="{{ url_for('index') }}">Intranet</a></h1>
+        <ul>
+        {% if auth %}
+            <li><span>Welcome, {{ auth }}</span></li>
+        {% else %}
+            <li><a class=".main-content" href="{{ url_for('intranet') }}">Intranet Access</a></li>
+        {% endif %}
+        </ul>
+    </nav>
+    <section class="content">
+        <header>
+            {% block header %}{% endblock %}
+        </header>
+        {% block content %}{% endblock %}
+    </section>
+</body>

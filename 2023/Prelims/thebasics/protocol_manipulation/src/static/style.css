@@ -1,0 +1,66 @@
+/* Set default font family and size */
+html, body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+/* Set background color and text color for the entire page */
+html {
+  background-color: #1a1a1a;
+  color: #f2f2f2;
+}
+
+body { max-width: 960px; margin: 0 auto; }
+
+
+/* Set a border at the top and bottom of the page */
+hr {
+  border: none;
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+  margin: 20px 0;
+}
+
+/* Style the navigation bar */
+nav {
+  background-color: #333;
+  padding: 10px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+nav a {
+  color: #f2f2f2;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Style the header */
+h1 {
+  font-size: 32px;
+  margin: 0;
+  padding: 20px 0;
+}
+
+/* Style links */
+a {
+  color: #0077cc;
+}
+
+a:hover {
+  color: #005580;
+  text-decoration: none;
+}
+
