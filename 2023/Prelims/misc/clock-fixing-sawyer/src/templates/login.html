@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block navtitle %}{% block title %}Log in{% endblock %}{% endblock %}
+
+{% block content %}
+<div class="columns">
+  <div class="column is-half is-offset-one-quarter">
+    <div class="box">
+      <div id="status" class="notification is-light is-danger" style="display: none;">
+        <div id="status-message">
+        </div>
+      </div>
+      <form method="post" id="form">
+        <div class="field">
+          <label class="label" for="username">Username</label>
+          <div class="control">
+            <input class="input" name="username" id="username" required>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="password">Password</label>
+          <div class="control">
+            <input class="input" type="password" name="password" id="password" required>
+          </div>
+        </div>
+        <div class="field is-grouped">
+          <p class="control is-expanded">
+          <input class="button is-{{ theme }}" type="submit" value="Log in">
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  const stat = document.getElementById('status')
+  const stat_msg = document.getElementById('status-message')
+  const form = document.getElementById('form')
+
+  function doSubmit(event) {
+      let username = document.getElementById('username').value
+      let password = document.getElementById('password').value
+      fetch('/api/login', {
+          method: 'POST',
+          body: JSON.stringify({username, password}),
+          headers: {
+            'content-type': 'application/json'
+          }
+        }).then(
+        (resp) => {
+            if (!resp.ok) {
+              resp.json().then((data) => {
+                stat_msg.innerHTML = data.error
+                stat.style.display = 'block'
+              })
+            } else {
+              window.location.href = '/'
+            }
+      })
+      event.preventDefault()
+  }
+
+  form.addEventListener('submit', doSubmit);
+
+</script>
+{% endblock %}

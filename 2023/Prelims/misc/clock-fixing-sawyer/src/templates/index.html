@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block navtitle %}{% block title %}Flags{% endblock %}{% endblock %}
+
+{% block content %}
+<div>
+  Hello {{ user.username }}. Here is your flag: {{ flag }}
+</div>
+{% endblock %}
