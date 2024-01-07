@@ -178,3 +178,24 @@
 |Hakkaravakan|web      |[clown1](./2022/Hakkaravakan/web/clown1)|nielsing           |
 |Hakkaravakan|web      |[gallery](./2022/Hakkaravakan/web/gallery)|elvar333           |
 |Hakkaravakan|web      |[ssrf-medium](./2022/Hakkaravakan/web/ssrf-medium)|hexliath           |
+
+# 2021
+|Competition|Category |Challenge                                                      |Author        |
+|-----------|---------|---------------------------------------------------------------|--------------|
+|Potluck    |crypto   |[C0bra](./2021/Potluck/crypto/C0bra)                           |ZeroCooL      |
+|Potluck    |crypto   |[doncrypt](./2021/Potluck/crypto/doncrypt)                     |RaptorJesus   |
+|Potluck    |crypto   |[lwe](./2021/Potluck/crypto/lwe)                               |RaptorJesus   |
+|Potluck    |forensics|[minesweeper](./2021/Potluck/forensics/minesweeper)            |elvar333      |
+|Potluck    |forensics|[sham](./2021/Potluck/forensics/sham)                          |ZeroCooL      |
+|Potluck    |misc     |[butterflies](./2021/Potluck/misc/butterflies)                 |Logi          |
+|Potluck    |misc     |[Ke2?](./2021/Potluck/misc/Ke2)                                |elvar333      |
+|Potluck    |misc     |[lost1](./2021/Potluck/misc/lost1)                             |Samúel        |
+|Potluck    |misc     |[lost2](./2021/Potluck/misc/lost2)                             |Samúel        |
+|Potluck    |pwn      |[jump_around](./2021/Potluck/pwn/jump_around)                  |nielsing      |
+|Potluck    |pwn      |[jump_around2](./2021/Potluck/pwn/jump_around_2)               |nielsing      |
+|Potluck    |pwn      |[rock-paper-scissors](./2021/Potluck/pwn/rock-paper-scissors)  |elvar333      |
+|Potluck    |rev      |[wizard](./2021/Potluck/rev/wizard)                            |ZeroCooL      |
+|Potluck    |web      |[cool-cat](./2021/Potluck/web/cool-cat)                        |KristinnVikarJ|
+|Potluck    |web      |[irregular-statements](./2021/Potluck/web/irregular-statements)|nielsing      |
+|Potluck    |web      |[phpfrick](./2021/Potluck/web/phpfrick)                        |nielsing      |
+

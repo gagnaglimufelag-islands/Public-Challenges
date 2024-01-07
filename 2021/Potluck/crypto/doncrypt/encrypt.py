@@ -1,0 +1,32 @@
+#!/usr/bin/env python2
+
+from collections import namedtuple
+
+RSA = namedtuple('RSA', ['n', 'e'])
+key = RSA(27424549610900397887493215700668130582056842044278087045323467496406584840892459639602063958118074429782888319090709641781194601833655855634728397901085307567553417204961788360197760968021035808905069833620123475455236410388473914742780938585152342481195997694186269318240131381967467485556234800699327258913710850210580749449026191466223030775242091184547378174392380769908457675079430009368760169242466086415659743481484315528832853494144529563553459145852286473180667799592237738846942203087191342086406525370312599758779531565916486110666021340646766580700633008088117683903537506456285361518388076024570247735869, 3)
+
+def encrypt(data):
+	return pow(data, key.e, key.n)
+
+print """Welcome to Don's flag making shop. How can I help you?
+	1. Create a flag
+	2. Exit"""
+while True:
+	choice = raw_input('> ')
+	try:
+		choice = int(choice)
+		if choice == 1:
+			print 'Enter your flag contents here'
+			contents = raw_input('> ')
+			plaintext = 'Your FLAG is 10an{' + contents + '}'
+			print plaintext
+			print 'Would you like to encrypt it aswell? (y/n)'
+			decision = raw_input('> ')
+			if decision.lower() == 'y':
+				print 'Here you go'
+				print encrypt(int(plaintext.encode('hex'), 16))
+		elif choice == 2:
+			exit()
+	except Exception as e:
+		print e
+		print 'Thats not a valid number'
