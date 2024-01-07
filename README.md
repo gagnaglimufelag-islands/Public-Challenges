@@ -90,12 +90,12 @@
 # 2022
 |Competition|Category |Challenge                   |Author             |
 |-----------|---------|----------------------------|-------------------|
-|Finals     |crypto   |[clock-fixing-sawyer](./2023/Finals/crypto/clock-fixing-sawyer)|hjalti             |
+|Finals     |crypto   |[clock-fixing-sawyer](./2022/Finals/crypto/clock-fixing-sawyer)|hjalti             |
 |Finals     |crypto   |[guess-the-cipher](./2022/Finals/crypto/guess-the-cipher)|hjalti             |
 |Finals     |crypto   |[post-anything-and-everything-cryptography](./2022/Finals/crypto/post-anything-and-everything-cryptography)|nielsing           |
 |Finals     |forensics|[docj](./2022/Finals/forensics/docj)|hjalti             |
 |Finals     |misc     |[brrr2](./2022/Finals/misc/brrr2)|hjalti             |
-|Finals     |pwn      |[ret_2_ai](./2023/Prelims/pwn/ret_2_ai)|nielsing           |
+|Finals     |pwn      |[ret_2_ai](./2022/Finals/pwn/ret_2_ai)|nielsing           |
 |Finals     |rev      |[diagon_alley](./2022/Finals/rev/diagon_alley)|heidar             |
 |Finals     |rev      |[pirate](./2022/Finals/rev/pirate)|heidar             |
 |Finals     |rev      |[reception](./2022/Finals/rev/reception)|heidar             |
