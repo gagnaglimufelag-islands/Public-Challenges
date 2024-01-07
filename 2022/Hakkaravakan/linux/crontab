@@ -1,0 +1,4 @@
+SHELL=/bin/bash
+
+* * * * * root (cp /root/personal/* /tmp/backup && cd /tmp/backup && zip backup.zip * && mv backup.zip ..; rm /tmp/backup/*)
+# Don't remove the empty line at the end of this file. It is required to run the cron job

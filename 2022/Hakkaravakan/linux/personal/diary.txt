@@ -1,0 +1,22 @@
+1975-06-03
+
+I think there is a ghost in the system
+
+---
+
+1983-02-22
+
+The ghost appears to be pervasive in the system. He has access to places I didn't even know he could.
+
+---
+
+1999-01-30
+
+I'm getting a bit worried. I'll save the flag here in my home directory
+/root/flag.txt. It's the only place the ghost appears not to have access to.
+
+---
+
+2022-10-24
+
+If someone is reading this, please help me submit the flag!
