@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Flags{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+      <p>
+        Search for flags.
+      </p>
+      <form>
+        <input placeholder="test{test}" value="{{start}}" name="query" />
+        <input type="submit" value="Search">
+      </form>
+      <hr>
+        {% if error_message %}
+            <div class="flash">{{ error_message }}</div>
+        {% endif %}
+      {% if start %}
+        {% if results %}
+          <p>Flag exists</p>
+        {% else %}
+          <p>Flag does not exist</p>
+        {% endif %}
+      {% endif %}
+{% endblock %}
