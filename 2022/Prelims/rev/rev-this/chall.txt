@@ -1,0 +1,48 @@
+<chall>:
+    ret    
+    leave  
+    call   1030 <__stack_chk_fail@plt>
+    je     1222 <chall+0xe9>
+    sub    rax,QWORD PTR fs:0x28
+    mov    rax,QWORD PTR [rbp-0x8]
+    nop
+    jle    11ec <chall+0xb3>
+    cmp    DWORD PTR [rbp-0x68],0x7
+    add    DWORD PTR [rbp-0x68],0x1
+    mov    DWORD PTR [rbp+rax*4-0x60],edx
+    cdqe   
+    mov    eax,DWORD PTR [rbp-0x68]
+    mov    edx,eax
+    xor    eax,DWORD PTR [rbp-0x64]
+    mov    eax,DWORD PTR [rbp+rax*4-0x60]
+    cdqe   
+    mov    eax,DWORD PTR [rbp-0x68]
+    jmp    1207 <chall+0xce>
+    mov    DWORD PTR [rbp-0x68],0x0
+    mov    DWORD PTR [rbp-0x64],0x42
+    mov    DWORD PTR [rbp-0x14],0x3f
+    mov    DWORD PTR [rbp-0x18],0x30
+    mov    DWORD PTR [rbp-0x1c],0x71
+    mov    DWORD PTR [rbp-0x20],0x34
+    mov    DWORD PTR [rbp-0x24],0x71
+    mov    DWORD PTR [rbp-0x28],0x30
+    mov    DWORD PTR [rbp-0x2c],0x31
+    mov    DWORD PTR [rbp-0x30],0x71
+    mov    DWORD PTR [rbp-0x34],0x26
+    mov    DWORD PTR [rbp-0x38],0x76
+    mov    DWORD PTR [rbp-0x3c],0x31
+    mov    DWORD PTR [rbp-0x40],0x31
+    mov    DWORD PTR [rbp-0x44],0x71
+    mov    DWORD PTR [rbp-0x48],0x2f
+    mov    DWORD PTR [rbp-0x4c],0x20
+    mov    DWORD PTR [rbp-0x50],0x2e
+    mov    DWORD PTR [rbp-0x54],0x3b
+    mov    DWORD PTR [rbp-0x58],0x39
+    mov    DWORD PTR [rbp-0x5c],0x25
+    mov    DWORD PTR [rbp-0x60],0x25
+    xor    eax,eax
+    mov    QWORD PTR [rbp-0x8],rax
+    mov    rax,QWORD PTR fs:0x28
+    sub    rsp,0x70
+    mov    rbp,rsp
+    push   rbp
