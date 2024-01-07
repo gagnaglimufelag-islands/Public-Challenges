@@ -1,0 +1,88 @@
+<!doctype html>
+<head>
+  <title>SickHouse - {% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bulma.min.css') }}">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏥</text></svg>">
+</head>
+<body>
+<nav class="navbar is-danger">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="{{ url_for('index') }}">
+        <h1 class="title">SickHouse</h1>
+      </a>
+    </div>
+
+
+    <div id="navbarMenuHeroA" class="navbar-menu">
+      <div class="navbar-end">
+        {% if auth == [] %}
+        <span class="navbar-item">
+          <a class="button is-danger is-inverted" href="{{ url_for('login') }}">
+            <span>Log in</span>
+          </a>
+        </span>
+        {% else %}
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            {{ auth[0] }}
+          </a>
+
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="{{ url_for('logout') }}">
+              Log out
+            </a>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero is-danger">
+
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title">
+        {% block navtitle %}{% endblock %}
+      </p>
+      <p class="subtitle">
+        {% block navsubtitle %}{% endblock %}
+      </p>
+    </div>
+  </div>
+
+</section>
+  <section class="section">
+    <div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+        <div class="notification is-light {% if category == 'error' %}is-danger{% else %}is-success {% endif %}">
+          <button class="delete"></button>
+          {{ message }}
+        </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+    </div>
+  </section>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+        const $notification = $delete.parentNode;
+
+        $delete.addEventListener('click', () => {
+          $notification.parentNode.removeChild($notification);
+        });
+      });
+    });
+  </script>
+
+</body>

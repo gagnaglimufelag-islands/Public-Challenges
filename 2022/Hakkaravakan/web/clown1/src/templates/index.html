@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block navtitle %}{% block title %}SickHouse{% endblock %}{% endblock %}
+
+{% block content %}
+    <h1 class="title"></h1>
+    {% if auth == [] %}
+    <p>
+      A SickHouse for sick people. Please login to use our services.
+    </p>
+    <p>
+        ✨Certified Vulnerability Free™✨
+    </p>
+    {% elif auth[0] == 'admin' %}
+    <p>
+    Your flag is {{ flag }}
+    </p>
+    {% else %}
+    <p>
+    Flags are only for admins. No flag for you!
+    </p>
+    {% endif %}
+{% endblock %}

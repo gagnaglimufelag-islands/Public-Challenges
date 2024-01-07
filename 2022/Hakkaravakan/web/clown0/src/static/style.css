@@ -1,0 +1,262 @@
+html {
+  font-family: sans-serif;
+  background: #3b3c41;
+  padding: 1rem;
+}
+
+body {
+  max-width: 960px;
+  margin: 0 auto;
+  background: white;
+}
+
+h1 {
+  color: #e91b22;
+  margin: 1rem 0;
+}
+
+a {
+  color: #e91b22;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid lightgray;
+}
+
+nav {
+  background: #e91b22;
+  display: flex;
+  align-items: center;
+  padding: 15px 0.5rem;
+}
+
+nav h1 {
+  flex: auto;
+  margin: 0;
+  font-size: 22px;
+}
+
+nav h1 a {
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  color: white;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a,
+nav ul li span,
+header .action {
+  display: block;
+  padding: 0.5rem;
+  color: white;
+}
+
+article {
+  border: solid 1px darkgrey;
+  border-radius: 10px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+article h1 {
+  margin: 0;
+}
+
+.description {
+  flex: 6;
+}
+
+.money {
+  flex: 1;
+  padding: 20px 0 20px 0;
+}
+
+.price {
+  font-style: italic;
+  padding-bottom: 5px;
+}
+
+.content {
+  padding: 0 1rem 1rem;
+}
+
+.content>header {
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  align-items: flex-end;
+}
+
+.content>header h1 {
+  flex: auto;
+  margin: 1rem 0 0.25rem 0;
+  font-size: 20px;
+}
+
+.flash {
+  margin: 1em 0;
+  padding: 1em;
+  background: #cae6f6;
+  border: 1px solid #377ba8;
+  border-radius: 5px;
+}
+
+.flash.error {
+  background-color: #ffa8a8;
+  border: 1px solid #fa4b4b;
+}
+
+.post {
+  padding: 15px;
+}
+
+.post>header {
+  display: flex;
+  align-items: flex-end;
+  font-size: 0.85em;
+}
+
+.post header .subject-line {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post header .subject-line .subject {
+  display: flex;
+  align-items: center;
+}
+
+.post header .subject-line .subject .status {
+  font-size: 0.5em;
+  border-radius: 5px;
+  flex: 1 0;
+  color: white;
+  padding: 3px 6px;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+.post header .subject-line .subject .status {
+  background-color: blue;
+}
+
+.post header .subject-line .subject .status.rejected {
+  background-color: red;
+}
+
+.post header .author {
+  font-style: italic;
+}
+
+.post .time {
+  color: slategray;
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+.post .body {
+  white-space: pre-line;
+}
+
+.post.draft {
+  font-style: italic;
+  background-color: #eee;
+}
+
+.content:last-child {
+  margin-bottom: 0;
+}
+
+.content form {
+  margin: 1em 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.content label {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  margin-right: 0.5em;
+}
+
+.content input,
+.content textarea {
+  margin-bottom: 1em;
+}
+
+.content textarea {
+  min-height: 12em;
+}
+
+.meta {
+  font-style: italic;
+}
+
+input.danger {
+  color: #cc2f2e;
+}
+
+input[type=submit] {
+  align-self: start;
+  min-width: 10em;
+}
+
+input[type!=submit], textarea {
+  width: 100%;
+}
+
+.ticket-form {
+  border-top: 1px solid darkgrey;
+  margin-top: 20px;
+}
+
+.ticket-form h3 {
+  color: #377ba8;
+  font-size: 16px;
+}
+
+label {
+  font-size: 0.8em;
+}
+
+.form-group {
+  display: flex;
+}
+
+.form-group>label {
+  flex: 1;
+}
+
+.form-group>input {
+  flex: 4;
+}
+
+.form-group>textarea {
+  flex: 4;
+}
+
+.form-group>.wrapper {
+  flex: 4;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+  border-bottom: 1px solid black;
+}
+
+tr {
+}
+
+td {
+  border-top: 1px solid black;
+  padding: 8px;
+  margin: 0;
+}

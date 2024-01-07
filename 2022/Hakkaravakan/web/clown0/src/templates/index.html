@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block navtitle %}{% block title %}🐟🐟🐟{% endblock %}{% endblock %}
+
+{% block content %}
+    {% if not auth %}
+    <h1 class="title">Fish Business Requires Fishy Business</h1>
+    <p>
+      The employee intranet of Fishy Business hf. 
+    </p>
+    <p>
+      This website is Certified Vulnerability Free™ thanks to our trusted partner in security: ClownSec
+    </p>
+    {% elif auth.username == 'admin' %}
+    <h1 class="title">Welcome back {{ auth.username }}!</h1>
+    <p>
+      {{ flag }}
+    </p>
+    {% else %}
+    <h1 class="title">Welcome back {{ auth.username }}!</h1>
+    <p>
+      Flags are only for admins!
+    </p>
+    {% endif %}
+{% endblock %}
