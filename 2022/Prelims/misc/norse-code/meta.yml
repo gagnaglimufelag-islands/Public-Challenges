@@ -1,0 +1,23 @@
+name: norse-code
+description: |
+  We found this ancient message believed to be from the vikings. They appear to
+  be written in some type of code.
+
+  Keep in mind that since this message was likely written before the invention
+  of curly brackets, normal brackets `()` might have to be replaced with curly
+  brackets `{}`
+category: misc
+flags:
+  - flag: gg{KEEP_YOUR_FRIENDS_CLOSE_AND_YOUR_ENEMIES_A_LITTLE_BIT_FURTHER_AWAY}
+    case_insensitive: true
+  - flag: gg(KEEP_YOUR_FRIENDS_CLOSE_AND_YOUR_ENEMIES_A_LITTLE_BIT_FURTHER_AWAY)
+    case_insensitive: true
+type: dynamic
+value: 500
+decay: 40
+minimum: 50
+files:
+    - norse-code.txt
+requires:
+  - cat
+author: hjalti

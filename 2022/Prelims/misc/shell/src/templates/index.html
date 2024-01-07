@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+
+{% block navtitle %}{% block title %}Let's play a game{% endblock %}{% endblock %}
+
+{% block content %}
+
+<div class="columns">
+  <div class="column is-three-fifths is-offset-one-fifth">
+    <div class="content">
+      <h3>Rules</h3>
+      <ol>
+        <li>I hide a ball in one of three cups and you guess which cup has the ball</li>
+        <li>After your guess, I lift one of the other two cups to reveal an empty cup</li>
+        <li>You can then either choose to stick with your original choice or change your guess to the other cup that has not been revealed</li>
+        <li>If the cup you chose contains the ball you win; otherwise you lose</li>
+        <li>If you can guess correctly 65 times out of 100, you will get a flag</li>
+      </ol>
+    </div>
+    <div class="box block">
+      <nav class="level">
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Total games</p>
+            <p id="plays" class="title">{{ game.plays }}</p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Last result</p>
+            <p id="last_result" class="title">{{ game.last_result or 'N/A' }}</p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Correct guesses</p>
+            <p id="correct" class="title">{{ game.correct }}</p>
+          </div>
+        </div>
+      </nav>
+      <section id="flag-hero" {% if not game.flag %}style="display: none;"{% endif %} class="hero is-success block">
+        <div class="hero-body">
+          <p class="title has-text-centered">
+            Winner winner, chicken dinner
+          </p>
+          <p id="flag-text" class="subtitle has-text-centered">
+          {{ game.flag or '' }}
+          </p>
+        </div>
+      </section>
+      <div class="block" id="cups" {% if game.done %}style="display: none;"{% endif %}>
+      <h3 class="has-text-centered">Where is the ball?</h3>
+      <div class="field is-grouped is-grouped-centered">
+        <p class="control">
+        <button id="action-1" {% if game.guess %}disabled{% endif %} class="{% if game.guess != 1 and game.empty != 1 %}is-outlined{% endif %} action button is-large {% if game.empty != 1 %}is-{{ theme }}{% else %}is-dark{% endif %}" onclick="submit(1)">Cup 1</button>
+        </p>
+        <p class="control">
+          <button id="action-2" {% if game.guess %}disabled{% endif %} class="{% if game.guess != 2 and game.empty != 2 %}is-outlined{% endif %} action button is-large {% if game.empty != 2 %}is-{{ theme }}{% else %}is-dark{% endif %}" onclick="submit(2)">Cup 2</button>
+        </p>
+        <p class="control">
+          <button id="action-3" {% if game.guess %}disabled{% endif %} class="{% if game.guess != 3 and game.empty != 3 %}is-outlined{% endif %} action button is-large {% if game.empty != 3 %}is-{{ theme }}{% else %}is-dark{% endif %}" onclick="submit(3)">Cup 3</button>
+        </p>
+      </div>
+      </div>
+      <div class="block" id="swap" {% if not game.guess or game.done %}style="display: none;"{% endif %} >
+        <h3 class="has-text-centered">Switch?</h3>
+        <p class="content has-text-centered">
+        The game master has revealed that the ball is not under cup <span id="empty-cup">{{ game.empty }}</span>. Do you want to switch to cup <span id="swap-cup">{{ game.swap }}</span>?
+        </p>
+        <div class="field is-grouped is-grouped-centered">
+          <p class="control">
+          <button class="is-outlined button is-large is-{{ theme }}" onclick="complete(true)">Yes</button>
+          </p>
+          <p class="control">
+          <button class="is-outlined button is-large is-{{ theme }}" onclick="complete(false)">No</button>
+          </p>
+        </div>
+      </div>
+      <div class="block" id="reset" {% if not game.done %}style="display: none;"{% endif %} >
+        <div class="field is-grouped is-grouped-centered">
+          <p class="control">
+          <button class="is-outlined button is-large is-danger" onclick="resetGame()">Restart game</button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script>
+  function disableAll() {
+    let elements = document.getElementsByClassName('action')
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].disabled = true
+    }
+  }
+  function reset() {
+    let elements = document.getElementsByClassName('action')
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].disabled = false
+      elements[i].classList.add('is-info')
+      elements[i].classList.add('is-outlined')
+      elements[i].classList.remove('is-dark')
+    }
+  }
+  function resetGame() {
+    let resp = fetch('/api/reset', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'same-origin',
+    })
+    .then(response => response.text())
+    .then(res => {
+        window.location.reload();
+    })
+  }
+  function select(cup) {
+    document.getElementById(`action-${cup}`).classList.remove('is-outlined')
+  }
+  function setEmpty(cup) {
+    document.getElementById(`action-${cup}`).classList.remove('is-info')
+    document.getElementById(`action-${cup}`).classList.remove('is-outlined')
+    document.getElementById(`action-${cup}`).classList.add('is-dark')
+  }
+  function submit(guess) {
+    disableAll()
+    select(guess)
+    let resp = fetch('/api/guess', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'same-origin',
+      body: JSON.stringify({'guess': guess}),
+    })
+      .then(response => response.text())
+      .then(resp => {
+        let data = JSON.parse(resp)
+        document.getElementById('plays').innerHTML = data.plays
+        document.getElementById('last_result').innerHTML = data.last_result || 'N/A'
+        document.getElementById('correct').innerHTML = data.correct
+        setEmpty(data.empty)
+        document.getElementById('correct').innerHTML = data.correct
+
+        document.getElementById('swap').style.display = 'block'
+        document.getElementById('empty-cup').innerHTML = data.empty
+        document.getElementById('swap-cup').innerHTML = data.swap
+
+      })
+  }
+
+  function complete(swap) {
+    let resp = fetch('/api/complete', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'same-origin',
+      body: JSON.stringify({'swap': swap}),
+    })
+      .then(response => response.text())
+      .then(resp => {
+        let data = JSON.parse(resp)
+        document.getElementById('plays').innerHTML = data.plays
+        document.getElementById('last_result').innerHTML = data.last_result || 'N/A'
+        document.getElementById('correct').innerHTML = data.correct
+        document.getElementById('swap').style.display = 'none'
+        reset()
+
+        if (data.flag) {
+          document.getElementById('flag-hero').style.display = 'block'
+          document.getElementById('flag-text').innerHTML = data.flag
+        }
+
+        if (data.done) {
+          document.getElementById('cups').style.display = 'none'
+          document.getElementById('swap').style.display = 'none'
+          document.getElementById('reset').style.display = 'block'
+        }
+      })
+  }
+</script>
+
+{% endblock %}
