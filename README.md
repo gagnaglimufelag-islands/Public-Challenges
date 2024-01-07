@@ -151,7 +151,7 @@
 |Hakkaravakan|crypto   |[one-way-ECB](./2022/Hakkaravakan/crypto/one-way-ECB)|GlacierSG          |
 |Hakkaravakan|crypto   |[semcurityThoughCensoring](./2022/Hakkaravakan/crypto/semcurityThoughCensoring)|RaptorJesus        |
 |Hakkaravakan|forensics|[2-meta-4-me](./2022/Hakkaravakan/forensics/2-meta-4-me)|Brynjar Örn        |
-|Hakkaravakan|forensics|[AiHex](./2022/Hakkaravakan/forensics/AiHex)|Brynjar Örn        |
+|Hakkaravakan|forensics|[ai_hex](./2022/Hakkaravakan/forensics/ai_hex)|Brynjar Örn        |
 |Hakkaravakan|forensics|[DoubleTrouble](./2022/Hakkaravakan/forensics/DoubleTrouble)|Brynjar Örn        |
 |Hakkaravakan|forensics|[happy_skeleton](./2022/Hakkaravakan/forensics/happy_skeleton)|GlacierSG          |
 |Hakkaravakan|forensics|[helGiT](./2022/Hakkaravakan/forensics/helGiT)|hexliath           |
