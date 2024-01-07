@@ -1,10 +1,2 @@
 # Is This Quantum?
-**Category:** crypto
-
-**Author:** RaptorJesus
-
-**Files:** [server.py](./server.py)
-
-**Port:** 31113
-
-You wouldn't happen to own a quantum computer, would you?
+This challenge was originally created for [Hakkaravakan 2022](../../../../2022/Hakkaravakan/crypto/isThisQuantum) and reused in the Prelims of 2023

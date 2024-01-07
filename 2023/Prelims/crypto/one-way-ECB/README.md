@@ -1,10 +1,2 @@
 # One Way ECB
-**Category:** crypto
-
-**Author:** GlacierSG
-
-**Files:** [chall.py](./files/chall.py)
-
-**Port:** 31733
-
-I prefer encryption when I cannot decrypt my message
+This challenge was originally created for [Hakkaravakan 2022](../../../../2022/Hakkaravakan/crypto/one-way-ECB) and reused in the Prelims of 2023
