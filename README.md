@@ -1,3 +1,11 @@
+<p align="center">
+<img style="" height=150 src="https://ggfi.is/assets/favicons/favicon.svg" alt="GGFI">
+</p>
+
+---
+
+This repository contains the source files and solutions of all CTF events hosted by GGFÍ
+
 # 2023
 |Competition|Category |Challenge                   |Author             |
 |-----------|---------|----------------------------|-------------------|
