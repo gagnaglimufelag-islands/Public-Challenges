@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block navtitle %}{% block title %}HiSchool{% endblock %}{% endblock %}
+
+{% block content %}
+    <h1 class="title">Real schools choose HiSchool</h1>
+    {% if not auth %}
+    <p>
+      A student management system with built in vulnerabilities and many other featuers. We have everything your school needs!
+    </p>
+    {% elif auth.username == 'admin' %}
+    <p>
+    Your flag is {{ flag }}
+    </p>
+    {% else %}
+    <p>
+    Flags are only for admins. No flag for you!
+    </p>
+    {% endif %}
+{% endblock %}

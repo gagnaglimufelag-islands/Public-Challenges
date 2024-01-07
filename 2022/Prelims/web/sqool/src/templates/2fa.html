@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block navtitle %}{% block title %}2FA{% endblock %}{% endblock %}
+
+{% block content %}
+<div class="columns">
+  <div class="column is-half is-offset-one-quarter">
+    <div class="box">
+      <form method="post">
+        <div class="field">
+          <label class="label" for="username">2FA code</label>
+          <div class="control">
+            <input id="2fa" required minlength="6" maxlength="6" class="input" name="code" id="code" placeholder="### ###" required>
+          </div>
+        </div>
+        <div class="field is-grouped">
+          <p class="control is-expanded">
+            <input class="button is-danger" type="submit" value="Submit">
+          </p>
+        </div>
+      </form>
+      <p>
+      </p>
+    </div>
+  </div>
+</div>
+<script>
+const inp = document.getElementById('2fa');
+document.addEventListener('keyup', check2fa);
+var value = ""
+
+
+async function sha256(message) {
+  const msgBuffer = new TextEncoder().encode(message);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  return hashHex;
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function check2fa(e) {
+  if (inp.value === value) {
+    return
+  }
+  value = inp.value
+  console.log(value)
+  const mfa = getCookie('mfa')
+  if (inp.value === "") {
+    inp.classList.remove('is-danger')
+    inp.classList.remove('is-success')
+  } else {
+    sha256(value).then(digest => {
+      if (mfa == digest) {
+        inp.classList.remove('is-danger')
+        inp.classList.add('is-success')
+      } else {
+        inp.classList.add('is-danger')
+      }
+    })
+  }
+}
+</script>
+{% endblock %}

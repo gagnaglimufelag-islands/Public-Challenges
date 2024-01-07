@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="treasure" content="ghmetab00ty">
+  <title>Treasure hunt</title>
+
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⭐</text></svg>">
+
+  {% block head %}
+  {% endblock %}
+</head>
+<body>
+
+  {% block body %}
+  {% endblock %}
+
+  <!-- Footer -->
+  <footer class="page-footer">
+
+      <!-- Contact Us -->
+      <div class="contact">
+          <div class="container">
+            <div class="small-print">
+              <div class="container">
+                <p>Copyright &copy; Nobody</p>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <!-- Copyright etc -->
+
+  </footer>
+
+
+  <!-- jQuery -->
+  <script src="{{ url_for('static', filename='js/jquery-1.11.3.min.js') }}"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{{ url_for('static', filename='js/jquery.easing.min.js') }}"></script>
+
+  {% block userscripts %}
+  {% endblock %}
+</body>
+</html>

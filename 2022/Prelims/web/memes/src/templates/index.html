@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ title | safe }}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <p>
+    Here you can submit a meme to our meme department. They want your memes now!!
+  </p>
+  {% if error_message %}
+      <div class="flash error">{{ error_message }}</div>
+  {% endif %}
+  {% if auth.user %}
+    {% if auth.user == 'admin' %}
+    <p>
+      {{ flag }}
+    </p>
+    {% endif %}
+    {% if not tickets %}
+    <p class="empty">
+      <i>No memes to find :(</i>
+    </p>
+    {% endif %}
+    {% for ticket in tickets %}
+      <article class="post">
+        <div class="description">
+          <header>
+            <div class="subject-line">
+              <div class="subject">
+                <a class="meme-url" href="{{ ticket.url }}"><h1>{{ticket.name}}</h1></a>
+                <div class="status {% if ticket.status == 'accepted' %}accepted{% endif %}">
+                  {{ ticket.status }}
+                </div>
+              </div>
+            </div>
+              <div class="time">
+                Posted by {{ ticket.author }} at {{ ticket.timestamp }}
+              </div>
+          </header>
+          {% if auth.user == 'admin' %}
+          <p>
+            {{ flag }}
+          </p>
+          <div class="flag-actions">
+          <form method="POST" action="/accept">
+            <input type="submit" name="accept" value="Accept">
+            <input type="hidden" name="ticketid" value="{{ ticket.id }}">
+          </form>
+          </div>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  {% endif %}
+  {% if auth.user and auth.user != 'admin' %}
+    <div class="ticket-form">
+      <h3>
+        Submit a meme
+      </h3>
+      <form method="POST">
+        <div class="form-content">
+          <label for="name">Name</label>
+          <input name="name" id="name" required>
+        </div>
+        <div class="form-content">
+          <label for="url">Hand us the meme URL!</label>
+          <input name="url" id="url" required>
+        </div>
+        <input type="submit" value="For the memes">
+      </form>
+    </div>
+  {% endif %}
+{% endblock %}
