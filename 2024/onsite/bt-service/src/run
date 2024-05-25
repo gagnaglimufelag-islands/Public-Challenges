@@ -1,0 +1,3 @@
+watch -n 5 sudo hciconfig hci0 leadv 0
+
+python3 gatt-server.py

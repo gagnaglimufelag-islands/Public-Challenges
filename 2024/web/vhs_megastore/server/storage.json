@@ -1,0 +1,67 @@
+{
+    "forrest_gump": {
+        "name": "Forrest Gump",
+        "description": "Life is like a box of chocolates.",
+        "owner": "John"
+    },
+    "jurassic_park": {
+        "name": "Jurassic Park",
+        "description": "Welcome to Jurassic Park.",
+        "owner": "Jack"
+    },
+    "titanic": {
+        "name": "Titanic",
+        "description": "I'm the king of the world!",
+        "owner": "Niels"
+    },
+    "pulp_fiction": {
+        "name": "Pulp Fiction",
+        "description": "The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men.",
+        "owner": "Franck"
+    },
+    "hackers":{
+        "name":"Hackers",
+        "description": "Teenage hackers discover a criminal conspiracy with plans to use a computer virus that will capsize five oil tankers",
+        "owner":"Mickael"
+    },
+    "matrix": {
+        "name": "Matrix",
+        "description": "Welcome to the real world.",
+        "owner": "John"
+    },
+    "terminator": {
+        "name": "Terminator",
+        "description": "I'll be back.",
+        "owner": "Jack"
+    },
+    "godfather": {
+        "name": "Godfather",
+        "description": "I'm gonna make him an offer he can't refuse.",
+        "owner": "Niels"
+    },
+    "back_to_the_future": {
+        "name": "Back to the Future",
+        "description": "Great Scott!",
+        "owner": "Franck"
+    },
+    "star_wars": {
+        "name": "Star Wars",
+        "description": "May the Force be with you.",
+        "owner": "John"
+    },
+    "indiana_jones": {
+        "name": "Indiana Jones",
+        "description": "It's not the years, honey, it's the mileage.",
+        "owner": "Jack"
+    },
+    "die_hard": {
+        "name": "Die Hard",
+        "description": "Yippee-ki-yay, motherf****r!",
+        "owner": "Niels"
+    },
+    "blade_runner": {
+        "name": "Blade Runner",
+        "description": "All those moments will be lost in time, like tears in rain.",
+        "owner": "Franck"
+    }
+}

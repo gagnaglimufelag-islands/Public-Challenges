@@ -1,0 +1,61 @@
+input.red[type="radio"]:checked~.pcard {
+  color: red;
+  opacity: 1;
+}
+
+input.black[type="radio"]:checked ~ .pcard {
+  color: black;
+  opacity: 1;
+}
+
+input[type="radio"] ~ .pcard {
+  color: black;
+  opacity: 0.3;
+}
+
+input[type="radio"]+.pcard {
+  color: black;
+  opacity: 0.3;
+}
+
+input[type="radio"]+label {
+  opacity: 0.3;
+}
+
+input[type="radio"]+label:hover {
+  opacity: 1;
+}
+
+.pcard {
+  font-size: 80px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.bg-red {
+  background-color: red;
+}
+
+.bg-black {
+  background-color: black;
+}
+
+.red {
+  color: red;
+}
+
+.black {
+  color: black;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.card-radio-group {
+  text-align: center;
+}

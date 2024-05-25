@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Flags{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+      <p>
+        Search for flags.
+      </p>
+      <form method="POST">
+        <input placeholder="test{test}" value="{{start}}" name="query" />
+        <input type="submit" value="Search">
+      </form>
+      <hr>
+        {% if error_message %}
+            <div class="flash">{{ error_message }}</div>
+        {% endif %}
+{% endblock %}
