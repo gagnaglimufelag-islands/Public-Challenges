@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block navtitle %}{% block title %}RegEx Patterns For Sale!{% endblock %}{% endblock %}
+
+{% block content %}
+
+<style>
+  .blurry-text {
+    filter: blur(3px);
+  }
+</style>
+<div class="columns">
+  <div class="column is-three-fifths is-offset-one-fifth">
+    <div class="box block">
+        <h1 class="title">Sample Patterns</h1>
+          <table class="table is-striped is-hoverable is-fullwidth">
+              <thead>
+                  <tr>
+                      <th>Name</th>
+                      <th>Pattern</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>Hockeyapp</td>
+                      <td>(?i)hockey.{0,50}(\\\"|'|`)?[0-9a-f]{32}(\\\"|'|`)?</td>
+                  </tr>
+                  <tr>
+                      <td>Outlook team</td>
+                      <td>https\\://outlook\\.office.com/webhook/[0-9a-f-]{36}\\@</td>
+                  </tr>
+                  <tr>
+                      <td class="blurry-text">Google API Key</td>
+                      <td class="blurry-text">AIza[0-9A-Za-z\\-_]{35}</td>
+                  </tr>
+              </tbody>
+          </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
