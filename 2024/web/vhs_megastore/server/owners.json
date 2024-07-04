@@ -1,0 +1,27 @@
+{
+    "John": {
+        "name":"John Doe",
+        "address": "123 Main St, London, UK",
+        "code": "1334167890"
+    },
+    "Jack": {
+        "name":"Jack Black",
+        "address": "456 Elm St, Berlin, Germany",
+        "code": "2345678901"
+    },
+    "Niels": {
+        "name":"Niels Brockman",
+        "address": "789 Oak St, Amsterdam, Netherlands",
+        "code": "3456789012"
+    },
+    "Franck": {
+        "name":"Franck Abigail",
+        "address": "101 Maple St, Paris, France",
+        "code": "4567890123"
+    },
+    "Mickael": {
+        "name":"Mickael Renegade",
+        "address": "FLAG",
+        "code": "REDACTED"
+    }
+}

@@ -6,6 +6,29 @@
 
 This repository contains the source files and solutions of all CTF events hosted by GGFÍ
 
+# 2024
+|Category |Challenge                   |Author             |
+|---------|----------------------------|-------------------|
+|crypto   |[inverse_lll](./2024/crypto/baeser64)|GlacierSG          |
+|crypto   |[keisara_dulkodun](./2024/crypto/one_way_ctr)|GlacierSG          |
+|crypto   |[one_way_cbc](./2024/crypto/shasha)|GlacierSG          |
+|forensics|[lost-file-contents](./2024/forensics/lost-file-contents)|Brynjar          |
+|forensics|[pizza](./2024/forensics/pizza)|hjalti          |
+|misc     |[dictating-director](./2024/misc/dictating-director)|nielsing          |
+|misc     |[jolly-fellow](./2024/misc/jolly-fellow)|nielsing          |
+|misc     |[kappafunction](./2024/misc/kappafunction)|johannthor          |
+|misc     |[spiralgorithm](./2024/misc/spiralgorithm)|hjalti          |
+|onsite   |[bt-discover](./2024/onsite/bt-discover)|Brynjar          |
+|onsite   |[bt-service](./2024/onsite/bt-service)|Brynjar          |
+|onsite   |[wifi-broadcast](./2024/onsite/wifi-broadcast)|Brynjar          |
+|onsite   |[wifi-infiltrate](./2024/onsite/wifi-infiltrate)|Brynjar          |
+|pwn      |[piepwn](./2024/pwn/piepwn)|hkr          |
+|rev      |[flag_server](./2024/rev/flag_server)|hkr          |
+|rev      |[slow-ls](./2024/rev/slow-ls)|brynjar          |
+|web      |[formulaspree](./2024/web/formulaspree)|nielsing/hjalti          |
+|web      |[pattern-matched](./2024/web/pattern-matched)|nielsing          |
+|web      |[vhs_megastore](./2024/web/vhs_megastore)|hexliath          |
+
 # 2023
 |Competition|Category |Challenge                   |Author             |
 |-----------|---------|----------------------------|-------------------|
