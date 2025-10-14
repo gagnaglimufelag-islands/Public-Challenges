@@ -6,6 +6,34 @@
 
 This repository contains the source files and solutions of all CTF events hosted by GGFÍ
 
+# 2025
+|Category |Challenge                   |Author             |
+|---------|----------------------------|-------------------|
+|crypto   |[rrrandom](./2025/crypto/rrrandom)|GlacierSG          |
+|crypto   |[very-complex-looking-cipher](./2025/crypto/very-complex-looking-cipher)|GlacierSG          |
+|crypto   |[wiending-things-down](./2025/crypto/wiending-things-down/)|GlacierSG          |
+|forensics|[lost-keys](./2025/forensics/lost-keys)|Brynjar          |
+|forensics|[pizza](./2025/forensics/pizza)|hjalti          |
+|misc     |[battleship](./2025/misc/battleship)|hjalti          |
+|misc     |[encoding-soupe](./2025/misc/encoding-soupe)|Brynjar          |
+|misc     |[macrosoft](./2025/misc/macrosoft)|nielsing          |
+|misc     |[osint-traveller](./2025/misc/osint-traveller)|Brynjar          |
+|misc     |[running-through-the-bases](./2025/misc/running-through-the-bases)|Brynjar          |
+|misc     |[the-typist](./2025/misc/the-typist)|nielsing          |
+|misc     |[wat](./2025/misc/wat)|hjalti          |
+|onsite   |[hsiys](./2025/onsite/hsiys)|hjalti          |
+|onsite   |[se7en](./2025/onsite/se7en)|hjalti          |
+|onsite   |[silly](./2025/onsite/silly)|hjalti          |
+|onsite   |[unload](./2025/onsite/unload)|hjalti          |
+|pwn      |[casper](./2025/pwn/casper)|hkr          |
+|pwn      |[formation_magic](./2025/pwn/formation_magic)|hkr          |
+|pwn      |[this-is-not-a-pwn-challenge](./2025/pwn/this-is-not-a-pwn-challenge)|nielsing          |
+|rev      |[pachycephaloxorus](./2025/rev/pachycephaloxorus)|hkr          |
+|rev      |[zeichenfolge](./2025/rev/zeichenfolge)|hkr          |
+|web      |[mandown](./2025/web/mandown)|nielsing|
+|web      |[next-level-auth](./2025/web/next-level-auth)|Brynjar          |
+|web      |[nightmare](./2025/web/nightmare)|nielsing          |
+
 # 2024
 |Category |Challenge                   |Author             |
 |---------|----------------------------|-------------------|

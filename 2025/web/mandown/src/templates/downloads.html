@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Your Downloads</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Filename</th>
+            <th>Source</th>
+            <th>File Size</th>
+            <th>Status</th>
+            <th>Destination</th>
+            <th>Started</th>
+            <th>Finished</th>
+            <th>Error Message</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for download in downloads %}
+        <tr>
+            <td>{{ download.filename }}</td>
+            <td>{{ download.url }}</td>
+            <td>{{ download.file_size }}</td>
+            <td>{{ download.status }}</td>
+            <td>{{ download.download_path }}</td>
+            <td>{{ download.start_time }}</td>
+            <td>{{ download.end_time }}</td>
+            <td>{{ download.error_message }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+

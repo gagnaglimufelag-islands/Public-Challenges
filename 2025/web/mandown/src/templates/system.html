@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>System Statistics</h2>
+
+<table>
+    <tr>
+      <th>Statistic</th>
+      <th>Value</th>
+    </tr>
+    <tr>
+      <td>Python Version</td>
+      <td>{{ python }}</td>
+    </tr>
+    <tr>
+      <td>Operating System</td>
+      <td>{{ os }}</td>
+    </tr>
+    <tr>
+      <td>Current User</td>
+      <td>{{ username }}</td>
+    </tr>
+    <tr>
+      <td colspan="2"><strong>Configuration:</strong></td>
+    </tr>
+    <form method="POST" action="/set-config">
+      {% for key, value in config.items() %}
+        {% if key in allowed_keys %}
+        <tr>
+          <td>{{ key | capitalize }}</td>
+          <td>
+            <input type="text" name="{{ key }}" placeholder="{{ value }}">
+          </td>
+        </tr>
+      {% else %}
+      <tr>
+        <td>{{ key | capitalize }}</td>
+        <td>{{ value }}</td>
+      </tr>
+      {% endif %}
+    {% endfor %}
+    <tr>
+        <td colspan="2">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </td>
+    </tr>
+    </form>
+</table>
+
+{% endblock %}
+

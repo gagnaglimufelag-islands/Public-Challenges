@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Dashboard</h2>
+<p>Welcome back, {{ session['username'] }}!</p>
+
+<div class="dashboard-stats">
+    <div class="stat-box">
+        <h3>Total Downloads</h3>
+        <p>{{ summary.total_downloads }}</p>
+    </div>
+    <div class="stat-box">
+        <h3>Completed</h3>
+        <p>{{ summary.completed }}</p>
+    </div>
+    <div class="stat-box">
+        <h3>In Progress</h3>
+        <p>{{ summary.in_progress }}</p>
+    </div>
+    <div class="stat-box">
+        <h3>Failed</h3>
+        <p>{{ summary.failed }}</p>
+    </div>
+</div>
+
+<a href="{{ url_for('downloads') }}" class="button">View All Downloads</a>
+{% endblock %}
+

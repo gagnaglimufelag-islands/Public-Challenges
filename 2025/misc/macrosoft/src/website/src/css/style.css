@@ -1,0 +1,358 @@
+/* css/style.css */
+:root {
+    --primary-color: #0078D4; /* Dominos Blue - adjusted for a slightly more generic blue */
+    --secondary-color: #FFFFFF;
+    --accent-color: #E31837; /* Dominos Red */
+    --text-color: #333333;
+    --background-color: #F4F4F4; /* Light grey background */
+    --light-background: #FFFFFF;
+    --border-color: #DDDDDD;
+    --font-family: 'Arial', sans-serif; /* Simple, widely available font */
+    --navbar-height: 70px;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding-top: var(--navbar-height); /* Ensure content below fixed navbar is visible */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    height: var(--navbar-height);
+    padding: 0 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(100% - 40px); /* Full width minus padding */
+    z-index: 1000;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-center {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.logo {
+    height: 50px; /* Adjust as needed */
+    vertical-align: middle;
+}
+
+.nav-button {
+    color: var(--secondary-color);
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.nav-button:hover, .nav-button.active {
+    background-color: #005a9e; /* Darker shade of primary blue */
+}
+
+.nav-button.order-button {
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+}
+
+.nav-button.order-button:hover {
+    background-color: #b81229; /* Darker red */
+}
+
+/* Banner styling */
+.banner {
+    background-image: url('../assets/images/banner-pizza-placeholder.jpg'); /* Placeholder image */
+    background-size: cover;
+    background-position: center;
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 100px 20px;
+    position: relative; /* For pseudo-element overlay */
+}
+
+.banner::before { /* Optional: Dark overlay for better text readability */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.banner-content {
+    position: relative; /* To be above the overlay */
+    z-index: 2;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.banner h1 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.banner p {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+.cta-button {
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 1.1em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.cta-button:hover {
+    background-color: #b81229; /* Darker red */
+}
+
+/* Main content styling */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto; /* Centering main content */
+    background-color: var(--light-background);
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    border-radius: 8px;
+}
+
+.welcome-section {
+    text-align: center;
+    padding: 30px 0;
+}
+.welcome-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* Page Header (for Menu, Offers, etc.) */
+.page-header {
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.page-header h1 {
+    color: var(--primary-color);
+    font-size: 2.5em;
+}
+
+
+/* Menu Page Styling */
+.pizza-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.pizza-card {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.pizza-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.pizza-card img.pizza-image { /* If you add images later */
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.pizza-card h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.pizza-card .toppings {
+    font-size: 0.95em;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.pizza-card .price {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.loading-message, .error-message, .info-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: var(--primary-color);
+    grid-column: 1 / -1; /* Span all columns if grid is active */
+    padding: 20px;
+}
+.error-message {
+    color: var(--accent-color);
+}
+
+
+/* Offers Page Styling */
+.offers-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.offer-card {
+    background-color: var(--light-background);
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--accent-color);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.offer-card h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    font-size: 1.6em;
+}
+
+.offer-card p {
+    margin-bottom: 10px;
+}
+.offer-card .offer-code {
+    font-weight: bold;
+    color: var(--accent-color);
+    background-color: #fdecea; /* Light red background for code */
+    padding: 5px 8px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+
+/* 404 Page Specific Styling */
+.not-found-page {
+    text-align: center;
+    padding: 50px 20px;
+}
+.not-found-content h1 {
+    color: var(--accent-color);
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+.not-found-content p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+
+/* Footer styling */
+footer {
+    background-color: #333;
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px; /* Give some space above the footer */
+}
+
+.footer-button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.footer-button:hover {
+    background-color: #005a9e;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+        width: calc(100% - 20px); /* Full width minus padding */
+    }
+    body {
+         padding-top: 130px; /* Adjust if navbar becomes taller, depends on logo and button wrapping */
+    }
+    .nav-left, .nav-right {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 5px;
+    }
+    .nav-center {
+        order: -1; /* Moves logo to top on mobile nav stack */
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .nav-button {
+        /* display: block; // Already block-like due to flex parent settings */
+        width: calc(100% - 30px); /* Full width buttons in their containers */
+        text-align: center;
+        margin: 5px 0; /* Vertical spacing for stacked buttons */
+    }
+    .nav-left .nav-button, .nav-right .nav-button {
+        flex-grow: 1; /* Make buttons in nav-left/right take equal space */
+    }
+
+
+    .banner h1 {
+        font-size: 2.2em;
+    }
+    .banner p {
+        font-size: 1em;
+    }
+
+    .page-header h1 {
+        font-size: 2em;
+    }
+
+    .pizza-grid, .offers-container {
+        grid-template-columns: 1fr; /* Stack items on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+     body {
+         padding-top: 180px; /* Further adjust if navbar is even taller due to more wrapping */
+    }
+    .banner h1 {
+        font-size: 1.8em;
+    }
+     .page-header h1 {
+        font-size: 1.8em;
+    }
+}

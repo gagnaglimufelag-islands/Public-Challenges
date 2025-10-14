@@ -1,0 +1,4 @@
+service:
+  type: web
+  service_port: 80
+  flag_in_env: false

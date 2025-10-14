@@ -1,0 +1,3 @@
+service:
+    type: web
+    service_port: 3000

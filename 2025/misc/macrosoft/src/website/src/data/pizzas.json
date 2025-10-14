@@ -1,0 +1,132 @@
+[
+  {
+    "name": "The Plain Jane",
+    "toppings": ["No toppings, just our amazing base of magical tomato sauce and fresh mozzarella! Don't worry though the base is on all pizzas!"],
+    "price": 1176
+  },
+  {
+    "name": "Pepperoni Classic",
+    "toppings": ["Pepperoni"],
+    "price": 1437
+  },
+  {
+    "name": "Mushroom Magic",
+    "toppings": ["Mushrooms"],
+    "price": 1372
+  },
+  {
+    "name": "Cheesus Crust",
+    "toppings": ["Extra Cheese"],
+    "price": 1503
+  },
+  {
+    "name": "Garden Delight",
+    "toppings": [
+      "Mushrooms",
+      "Onions",
+      "Green Peppers",
+      "Black Olives",
+      "Fresh Tomatoes"
+    ],
+    "price": 1764
+  },
+  {
+    "name": "Aloha Special",
+    "toppings": ["Ham", "Pineapple"],
+    "price": 1633
+  },
+  {
+    "name": "Carnivore Carnival",
+    "toppings": [
+      "Pepperoni",
+      "Ham",
+      "Spicy Beef",
+      "Bacon",
+      "Ground Beef"
+    ],
+    "price": 2091
+  },
+  {
+    "name": "Volcano Blast",
+    "toppings": ["Spicy Beef", "Jalapenos", "Onions"],
+    "price": 1829
+  },
+  {
+    "name": "Pepperoni Overload",
+    "toppings": ["Pepperoni (double)"],
+    "price": 1699
+  },
+  {
+    "name": "Cluck & Oink",
+    "toppings": ["Chicken", "Bacon"],
+    "price": 1895
+  },
+  {
+    "name": "Greek Getaway",
+    "toppings": [
+      "Black Olives",
+      "Green Olives",
+      "Feta Cheese",
+      "Spinach",
+      "Fresh Tomatoes"
+    ],
+    "price": 1960
+  },
+  {
+    "name": "Salty Sailor",
+    "toppings": ["Anchovies", "Black Olives"],
+    "price": 1568
+  },
+  {
+    "name": "Sweet Heat Wave",
+    "toppings": ["Pineapple", "Jalapenos", "Chicken"],
+    "price": 1829
+  },
+  {
+    "name": "Trio Treat",
+    "toppings": ["Pepperoni", "Mushrooms", "Onions"],
+    "price": 1699
+  },
+  {
+    "name": "Quad Combo",
+    "toppings": ["Ham", "Green Peppers", "Sweetcorn", "Extra Cheese"],
+    "price": 1895
+  },
+  {
+    "name": "Spinach Feta Fusion",
+    "toppings": ["Spinach", "Feta Cheese", "Onions"],
+    "price": 1764
+  },
+  {
+    "name": "Rancher's Choice",
+    "toppings": ["Ground Beef", "Sweetcorn", "Green Peppers"],
+    "price": 1829
+  },
+  {
+    "name": "Bacon Bonanza (double)",
+    "toppings": ["Bacon (double)"],
+    "price": 1829
+  },
+  {
+    "name": "Lean & Green Bird",
+    "toppings": ["Chicken", "Fresh Tomatoes", "Spinach", "Green Olives"],
+    "price": 2025
+  },
+  {
+    "id": "the-kitchen-sink",
+    "name": "The Kitchen Sink",
+    "toppings": [
+      "Pepperoni",
+      "Mushrooms",
+      "Onions",
+      "Green Peppers",
+      "Black Olives",
+      "Ham",
+      "Pineapple",
+      "Spicy Beef",
+      "Bacon",
+      "Jalapenos"
+    ],
+    "price": 2875
+  }
+]

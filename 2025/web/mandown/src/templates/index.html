@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Welcome to Manager of Downloads</h2>
+<p>A simple tool to manage your downloads efficiently.</p>
+<p>To get started, <a href="{{ url_for('login') }}">log in</a> and view your <a href="{{ url_for('downloads') }}">downloads</a>.</p>
+{% endblock %}
+
